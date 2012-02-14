@@ -1,0 +1,30 @@
+<div class="ui-body ui-body-c">
+  <h2><%= @event.title %></h2>
+  <% if @event.orig_title %>
+    <p><em><%= @event.orig_title %></em></p>
+  <% end %>
+  <p><%= simple_format(@event.description) %></p>
+  <p>Typ predstavenia: <%= @event.event_type %></p>
+  <p><%= simple_format(@event.info) %></p>
+  
+  <ul data-role="listview" data-inset="true" data-dividertheme="b">
+    <li data-role="list-divider">Premietania</li>
+    <% @event.event_dates.each do |ed| %>
+    <li><%= ed.datetime.strftime("%d.%m.%Y - %H:%M") %> - <%= weekday(ed.datetime) %></li>
+    <% end %>
+  </ul>
+
+  <% unless @event.poster.blank? %>
+    <div data-role="collapsible" data-theme="a">
+      <h3>Plagát k filmu</h3>
+      <p><img src="<%= @event.poster.html_safe %>" alt="Poster" /></p>
+    </div>
+  <% end %>
+
+  <% unless @event.trailer.blank? %>
+    <div data-role="collapsible" data-theme="a">
+      <h3>Trailer k filmu</h3>
+      <iframe width="240" height="152" src="http://www.youtube.com/embed/<%= @event.trailer.html_safe %>" frameborder="0" allowfullscreen></iframe>
+    </div>
+  <% end %>
+</div>

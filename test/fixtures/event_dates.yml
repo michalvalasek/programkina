@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  event_id: 1
+  date: MyString
+  datetime: 2012-02-13 20:46:14
+
+two:
+  event_id: 1
+  date: MyString
+  datetime: 2012-02-13 20:46:14
