@@ -2,7 +2,11 @@ Programkina::Application.routes.draw do
   
   get "event/:id" => "public#detail", :as => :event
 
-  devise_for :users
+  devise_for :users do
+    get "/sign_in" => "devise/sessions#new", :as => :sign_in
+    get "/sign_out" => "devise/sessions#destroy", :as => :sign_out
+    get "/sign_up" => "devise/registrations#new", :as => :sign_up
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
