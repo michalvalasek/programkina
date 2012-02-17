@@ -1,5 +1,7 @@
 Programkina::Application.routes.draw do
   
+  get "dashboard" => "dashboard#index", :as => :dashboard
+
   get "event/:id" => "public#detail", :as => :event
 
   devise_for :users do

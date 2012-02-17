@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :stages
+
+  after_create do |user|
+    user.stages.create(:name=>"Default Stage")
+  end
 end

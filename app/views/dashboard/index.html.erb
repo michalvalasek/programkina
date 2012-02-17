@@ -1,0 +1,11 @@
+<h2>Dashboard</h2>
+
+<%#= debug(current_user) %>
+
+<h3>Your stages:</h3>
+<ul>
+<% @stages.each do |stage| %>
+  <li><%= stage.name %>: <%= stage.events.count %> events</li>
+<% end %>
+<%= "You have no stages yet" if @stages.empty? %>
+</ul>
