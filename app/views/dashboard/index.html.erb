@@ -8,4 +8,5 @@
   <li><%= stage.name %>: <%= stage.events.count %> events</li>
 <% end %>
 <%= "You have no stages yet" if @stages.empty? %>
+<%= link_to "Manage stages", stages_path %>
 </ul>

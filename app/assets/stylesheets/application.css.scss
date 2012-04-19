@@ -1,0 +1,33 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+div.quickformbox {
+	width: 800px;
+	background: #fbfbfb;
+	border: 1px solid #ddd;
+	padding: 7px;
+	margin-bottom: 20px;
+	-webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+
+    .errors {
+		font-size: 14px;
+		color: #ff0000;
+		padding-bottom:7px;
+	}
+
+	form {
+		color: #676767;
+		font-size: 18px;
+		
+		span {
+			vertical-align: middle;
+		}
+	}
+}

@@ -1,0 +1,21 @@
+#sidebar ul#nav li a strong { position: relative; right: -1px; margin: 0; }
+#header form { margin-left: 10px; }
+#header form .quickresults { left: 20px; }
+
+#content .tableactions input.submit,
+#content form input.submit,
+#content form .custom_file input.button {
+	padding: 5px 0;
+	}
+	
+#content .progress_bar.small {
+	padding-right: 2px;
+	}
+	
+#content form .custom_file input.button {
+	vertical-align: middle;
+	}
+	
+#content .chat_messages ul li {
+	line-height: normal;
+	}

@@ -1,0 +1,10 @@
+<% if target.errors.any? %>
+	<h3>Uloženiu zabraňujú nasledujúce chyby:</h3>
+	<div class="message errormsg">
+		<% target.errors.full_messages.each do |msg| %>
+			<p>
+				<%= msg %>
+			</p>
+		<% end %>
+	</div>
+<% end %>

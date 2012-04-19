@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=7" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="." />
+	<meta name="keywords" content="." />
+
+	<title>Kolkominate.sk</title>
+
+  <%= stylesheet_link_tag "application" %>
+
+	<!--[if lt IE 9]>
+	<%= stylesheet_link_tag "ie" %>
+	<![endif]-->
+
+	<%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body class="loginpage">
+
+	<div id="header">
+		<h1><a href="#">Kolkominate.sk</a></h1>
+	</div>			<!-- #header ends -->
+
+	<div id="content" class="loginbox">
+		<% if flash[:notice] %>
+			<div class="message info" style="display: block;">
+			  <%= flash[:notice] %>
+		<% end  %>
+		<% if flash[:alert] %>
+			<div class="message errormsg" style="display: block;">
+			  <%= flash[:alert] %>
+		<% end %>
+		<% if flash[:success] %>
+			<div class="message sucess" style="display: block;">
+			  <%= flash[:success] %>
+		<% end %>
+		<% unless flash.empty? %>
+				<span class="close" title="Dismiss"></span>
+			</div>
+		<% end %>
+
+	  <%= yield %>
+	</div>
+
+</body>
+</html>

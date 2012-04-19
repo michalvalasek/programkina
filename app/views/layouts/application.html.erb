@@ -1,19 +1,79 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-  <title>Programkina</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="description" content="." />
+  <meta name="keywords" content="." />
+
+  <title>ProgramKina.sk</title>
+
+  <%= stylesheet_link_tag "application" %>
+
+  <!--[if lt IE 9]>
+  <%= stylesheet_link_tag "ie" %>
+  <![endif]-->
+
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 
-<h1>Programkina.sk App</h1>
+  <div id="header">
+    <h1><a href="#">ProgramKina.sk</a></h1>
+    <% if user_signed_in? %>
+      <div class="userprofile">
+      <ul>
+        <li><a href="#"><%= image_tag "/images/avatar.gif" %> <%= current_user.email %></a>
+          <ul>
+            <li><%= link_to "Odhlásiť sa", sign_out_path %></li>
+          </ul>
+        </li>
+      </ul>
+    </div>    <!-- .userprofile ends -->
+    <% end %>
+  </div>      <!-- #header ends -->
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+  <div id="sidebar">
+    <ul id="nav">
+      <li><%= main_menu_item_for dashboard_path, "Úvod", "Úvodná obrazovka", "dashboard.png" %></li>
+      <li>
+        <%= main_menu_item_for 'events_path', "Programy", "Správa programov", "support.png" %>
+        <ul>
+          <li><%= link_to 'Pridať predstavenie', 'new_event_path' %></li>
+        </ul>
+      </li>
+      <li><%= main_menu_item_for stages_path, "Javiská", "Správa javísk", "support.png" %></li>
+    </ul>
+  </div>
 
-<%= yield %>
+  <div id="content">
+
+    <div class="breadcrumb">
+      <%= link_to "Home", dashboard_path %>
+    </div>
+
+    <% if flash[:notice] %>
+      <div class="message info" style="display: block;">
+        <%= flash[:notice] %>
+    <% end  %>
+    <% if flash[:alert] %>
+      <div class="message errormsg" style="display: block;">
+        <%= flash[:alert] %>
+    <% end %>
+    <% if flash[:success] %>
+      <div class="message sucess" style="display: block;">
+        <%= flash[:success] %>
+    <% end %>
+    <% unless flash.empty? %>
+        <span class="close" title="Dismiss"></span>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </div>
 
 </body>
 </html>
