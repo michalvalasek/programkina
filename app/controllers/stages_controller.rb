@@ -1,4 +1,7 @@
 class StagesController < ApplicationController
+  
+  load_and_authorize_resource
+
   # GET /stages
   # GET /stages.json
   def index
@@ -41,6 +44,7 @@ class StagesController < ApplicationController
   # POST /stages.json
   def create
     @stage = Stage.new(params[:stage])
+    @stage.user_id = current_user.id
 
     respond_to do |format|
       if @stage.save

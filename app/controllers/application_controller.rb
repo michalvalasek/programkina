@@ -8,4 +8,8 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(resource)
     root_path
   end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to dashboard_url, :alert => exception.message
+  end
 end

@@ -14,6 +14,5 @@ class PublicController < ApplicationController
     else
       render template: 'public/event_not_found'
     end
-
   end
 end
