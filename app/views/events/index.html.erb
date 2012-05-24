@@ -1,0 +1,30 @@
+<h2>Správa programu pre scénu: <%= @current_stage.name %></h2>
+
+<div class="stages_select">
+  Výber scény: 
+  <ul>
+    <% @stages.each do |stage| %>
+    <li><%= link_to_unless_current stage.name, {:controller=>"events", :action=>"index", :stage => stage.id} %></li>
+    <% end %>  
+  </ul>
+</div>
+
+<h3>Predstavenia</h3>
+
+<table cellpadding="0" cellspacing="0" width="100%" class="sortable" id="stages-list">
+  <tr>
+    <th>Názov</th>
+    <th></th>
+  </tr>
+
+  <% @events.each do |event| %>
+    <tr class="<%= cycle("even","odd") %>">
+      <td><%= event.title %></td>
+      <td>
+        <%= link_to 'Zobraziť detaily', event %>
+        <%= link_to 'Upraviť', edit_event_path(event) %>
+        <%= link_to 'Zmazať', event, confirm: 'Naozaj chcete zmazať toto predstavenie?', method: :delete %>
+      </td>
+    </tr>
+  <% end %>
+</table>

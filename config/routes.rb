@@ -10,7 +10,11 @@ Programkina::Application.routes.draw do
     get "/sign_up" => "devise/registrations#new", :as => :sign_up
   end
 
-  resources :stages
+  resources :stages do
+    resources :events
+  end
+
+  resources :events
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

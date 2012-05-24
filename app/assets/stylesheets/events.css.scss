@@ -1,0 +1,20 @@
+div.stages_select {
+	margin: 20px 0;
+
+	background: #FBFBFB;
+	border-bottom: 1px solid #ddd;
+	padding: 10px 5px 5px 5px;
+	font-size: 16px;
+	
+	ul {
+		display: inline;
+		li {
+			display: inline;
+			font-size: 16px;
+				font-weight: bold;
+			a {
+				font-weight: normal;
+			}
+		}
+	}
+}
