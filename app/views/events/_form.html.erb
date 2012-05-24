@@ -1,0 +1,47 @@
+<%= render 'shared/form_errors', target: @event %>
+
+<%= form_for(@event, url: stage_event_path(@stage)) do |f| %>
+  <div class="field">
+    <%= f.label :title, "Názov" %><br />
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :orig_title, "Pôvodný názov" %><br />
+    <%= f.text_field :orig_title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description, "Popis" %><br />
+    <%= f.text_area :description, rows: 5 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :event_type, "Typ podujatia" %><br />
+    <%= f.select :event_type, Event::EVENT_TYPES %>
+  </div>
+
+  <div class="field">
+    <%= f.label :projection_type, "Typ projekcie" %><br />
+    <%= f.select :projection_type, Event::PROJECTION_TYPES %>
+  </div>
+
+  <div class="field">
+    <%= f.label :info, "Doplňujúce informácie o premietaní" %><br />
+    <%= f.text_area :info, rows: 5 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :poster, "URL plagátu k filmu" %><br />
+    <%= f.text_field :poster %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trailer, "YouTube kód traileru (alebo celá URL)" %><br />
+    <%= f.text_field :trailer %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Uložiť" %>
+  </div>
+<% end %>
