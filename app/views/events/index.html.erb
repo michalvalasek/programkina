@@ -1,13 +1,4 @@
-<h2>Správa programu pre scénu: <%= @current_stage.name %></h2>
-
-<div class="stages_select">
-  Výber scény: 
-  <ul>
-    <% @stages.each do |stage| %>
-    <li><%= link_to_unless_current stage.name, {:controller=>"events", :action=>"index", :stage => stage.id} %></li>
-    <% end %>  
-  </ul>
-</div>
+<h2>Správa programu pre scénu: <%= @stage.name %></h2>
 
 <h3>Predstavenia</h3>
 
