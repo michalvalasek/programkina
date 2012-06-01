@@ -41,6 +41,16 @@
     <%= f.text_field :trailer %>
   </div>
 
+  <div class="textbox half">
+    <h2>Premietania</h2>
+    <div class="textbox_content">
+    <%= f.fields_for :event_dates do |builder| %>
+      <%= render 'event_date_fields', f: builder %>
+    <% end %>
+    <%= link_to_add_fields "Pridať termín", f, :event_dates %>
+    </div>
+  </div>
+
   <div class="actions">
     <%= f.submit "Uložiť" %>
   </div>

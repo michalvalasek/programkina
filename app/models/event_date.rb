@@ -4,6 +4,6 @@ class EventDate < ActiveRecord::Base
 
   attr_accessible :date, :datetime
 
-  validates :date, :datetime, presence: true
+  validates :date, presence: true
 
 end
