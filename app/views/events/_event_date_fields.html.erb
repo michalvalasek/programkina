@@ -1,6 +1,6 @@
 <div class="projection-date">
-  <%= f.label :date, "Dátum" %>
-  <%= f.text_field :date, class: "text", size: 30 %>
+  <%= f.label :datetime, "Dátum" %>
+  <%= f.text_field :datetime, class: "text datetime_picker", size: 40, value: (f.object.datetime.strftime('%d.%m.%Y %H:%M') unless f.object.datetime.nil?) %>
   <%= f.hidden_field :_destroy %>
-  <%= link_to "odstrániť", '#', class: "remove_fields" %>
+  <%= link_to "odstrániť termín", '#', class: "remove_fields" %>
 </div>

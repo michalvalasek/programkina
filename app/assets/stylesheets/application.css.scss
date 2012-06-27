@@ -3,7 +3,8 @@
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
  *= require_self
- *= require_tree . 
+ *= require jquery.ui.all
+ *= require_tree .
 */
 
 div.quickformbox {
@@ -25,7 +26,7 @@ div.quickformbox {
 	form {
 		color: #676767;
 		font-size: 18px;
-		
+
 		span {
 			vertical-align: middle;
 		}
@@ -44,11 +45,11 @@ a.bigbutton {
 	vertical-align: middle;
 	text-shadow: 0 1px 0 #000;
 	cursor: pointer;
-	
+
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
-	
+
 	-moz-box-shadow: inset 0 1px 0 #73b9f3;
 	-webkit-box-shadow: inset 0 1px 0 #73b9f3;
 	box-shadow: inset 0 1px 0 #73b9f3;
@@ -75,4 +76,12 @@ a.bigbutton {
 		top: 0;
 		right: 0;
 	}
+}
+
+input.datetime_picker {
+	font-size: 13px;
+	width: 180px;
+	padding-right: 36px;
+	cursor: pointer;
+	background: url(../images/cal.jpg) center right no-repeat;
 }

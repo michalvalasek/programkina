@@ -4,6 +4,8 @@ class EventDate < ActiveRecord::Base
 
   attr_accessible :date, :datetime
 
-  validates :date, presence: true
+  validates :datetime, presence: true
+
+  before_save { |record| record.date = record.datetime.strftime("%Y%m%d") }
 
 end
