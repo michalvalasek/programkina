@@ -1,13 +1,1 @@
-<ul data-role="listview" data-inset="true" data-filter="true" data-filter-placeholder="Hľadať film podľa názvu...">
-  <% #@events.each do |event| %>
-  <% @dates.each do |d| %>
-  <li data-role="list-divider"><%= d.datetime.strftime("%d.%m.%Y") %> - <%= weekday(d.datetime) %></li>
-    <% EventDate.where("date='#{d.date}'").each do |ed| %>
-    <li>
-      <a href="<%= event_path(ed.event) %>" title="Detaily predstavenia">
-        <h3><%= ed.event.title %></h3>
-      </a>
-    </li>
-    <% end %>
-  <% end %>
-</ul>
+<h2>Titulná stránka</h2>

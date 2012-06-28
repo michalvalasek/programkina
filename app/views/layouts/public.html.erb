@@ -1,53 +1,34 @@
-<!DOCTYPE html>
-<html lang="sk"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    
-    <title>ProgramKina.sk</title>
-    <meta name="description" content="Program Kina Fontána v Piešťanoch">
-    <meta name="keywords" content="program, kino, program kina, fontana, piestany">
-    <meta name="author" content="Michal Valášek">
-    <meta name="robots" content="all">
-    
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
-    
-    <link rel="apple-touch-icon" href="/images/touch-icon-iphone.jpg" />
-    <link rel="apple-touch-icon" sizes="72x72" href="/images/touch-icon-ipad.jpg" />
-    <link rel="apple-touch-icon" sizes="114x114" href="/images/touch-icon-iphone4.jpg" />
-    
-    <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
-    <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-28833593-1']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-</head> 
- 
-<body> 
-  <div data-role="page" id="one" data-add-back-btn="true">
- 
-    <div data-role="header">
-        <h1>ProgramKina.sk</h1>
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="description" content="." />
+    <meta name="keywords" content="." />
+
+    <title>Kolkominate.sk</title>
+
+    <%= stylesheet_link_tag "public" %>
+
+    <!--[if lt IE 9]>
+    <%= stylesheet_link_tag "ie" %>
+    <![endif]-->
+
+    <%= javascript_include_tag "public" %>
+    <%= csrf_meta_tags %>
+</head>
+
+<body>
+
+    <div id="header">
+        <h1><a href="#">Kolkominate.sk</a></h1>
+        <p><%= link_to "Prihláste sa", sign_in_path %> alebo sa <%= link_to "zaregistrujte", sign_up_path %></p>
+    </div>          <!-- #header ends -->
+
+    <div id="content">
+      <%= yield %>
     </div>
- 
-    <div data-role="content">
-        <%= yield %>
-    </div>
- 
-    <div data-role="footer">
-        <h4>App by Michal Valášek</h4>
-    </div>
- 
-</div>
-</div>
- 
+
 </body>
 </html>
