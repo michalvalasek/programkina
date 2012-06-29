@@ -22,12 +22,13 @@
 <body>
 
   <div id="header">
-    <h1><a href="#">ProgramKina.sk - <%= current_user.account.name %></a></h1>
+    <h1><a href="<%= dashboard_path %>">ProgramKina.sk - <%= current_user.account.name %></a></h1>
     <% if user_signed_in? %>
       <div class="userprofile">
       <ul>
         <li><a href="#"><%= image_tag "/images/avatar.gif" %> <%= current_user.email %></a>
           <ul>
+            <li><%= link_to "Nastavenia účtu", edit_settings_path %></li>
             <li><%= link_to "Odhlásiť sa", sign_out_path %></li>
           </ul>
         </li>

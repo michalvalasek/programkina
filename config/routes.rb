@@ -1,6 +1,9 @@
 Programkina::Application.routes.draw do
   
   get "dashboard" => "dashboard#index", :as => :dashboard
+  
+  get "settings" => "account#edit", :as => :edit_settings
+  put "settings" => "account#update", :as => :update_settings
 
   get "event/:id" => "jqm#detail", :as => :event
 

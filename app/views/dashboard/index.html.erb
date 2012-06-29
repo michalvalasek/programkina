@@ -1,12 +1,12 @@
 <h2>Dashboard</h2>
 
-<%#= debug(current_user) %>
+<%#= debug(current_user.account) %>
 
-<h3>Your stages:</h3>
+<h3>Vaše javiská:</h3>
 <ul>
 <% @stages.each do |stage| %>
-  <li><%= stage.name %>: <%= stage.events.count %> events</li>
+  <li><%= stage.name %>: <%= stage.events.count %> predstavení</li>
 <% end %>
-<%= "You have no stages yet" if @stages.empty? %>
-<%= link_to "Manage stages", stages_path %>
+<%= "Zatiaľ nemáte vytvorené žiadne javiská" if @stages.empty? %>
+<%= link_to "Spravovať javiská", stages_path %>
 </ul>

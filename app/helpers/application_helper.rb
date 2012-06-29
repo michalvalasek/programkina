@@ -16,5 +16,13 @@ module ApplicationHelper
     end
     link_to(name, '#', class: "add_fields", data: {id: id, fields: fields.gsub("\n", "")})
   end
+  
+  def formated_account_type
+    dict = {
+      Account::TYPE_THEATER => "Kino",
+      Account::TYPE_FESTIVAL => "Festival",
+    }
+    dict[current_user.account.account_type]
+  end
 
 end

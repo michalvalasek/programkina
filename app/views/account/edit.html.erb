@@ -1,0 +1,17 @@
+<h2>Nastavenia účtu</h2>
+
+<p>Typ účtu: <%= formated_account_type %></p>
+
+<%= render 'shared/form_errors', target: @account %>
+
+<%= form_for @account, url: update_settings_path do |f| %>
+  <p>
+    <%= f.label :name, "Názov účtu (napr. názov kina alebo festivalu)" %><br />
+    <%= f.text_field :name, class: "text", size: 50 %>
+  </p>
+  
+  <p class="formend">
+    <%= f.submit "Uložiť", class: "submit" %>
+    <%= link_to "Zrušiť", dashboard_path %>
+  </div>
+<% end -%>
