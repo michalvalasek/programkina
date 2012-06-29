@@ -3,18 +3,24 @@
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   
   <p>
-    <%= f.label :email %><br />
+    <%= f.label :email, "E-mail, na ktorý bude registrovaný tento účet" %><br />
     <%= f.email_field :email, class: "text" %>
   </p>
 
   <p>
-    <%= f.label :password %><br />
+    <%= f.label :password, "Zvoľte si heslo" %><br />
     <%= f.password_field :password, class: "text" %>
   </p>
 
   <p>
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Zopakujte zvolené heslo" %><br />
     <%= f.password_field :password_confirmation, class: "text" %>
+  </p>
+  
+  <p>
+    <%= f.label :account_type, "Typ účtu" %><br />
+    <%= f.radio_button :account_type, User::ACCOUNT_TYPE_THEATER %> Kino
+    <%= f.radio_button :account_type, User::ACCOUNT_TYPE_FESTIVAL %> Festival
   </p>
 
   <p class="formend">
