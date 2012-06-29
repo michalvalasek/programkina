@@ -1,8 +1,8 @@
 #encoding: utf-8
 
 class User < ActiveRecord::Base
-  ACCOUNT_TYPE_THEATER = :theater
-  ACCOUNT_TYPE_FESTIVAL = :festival
+  has_many :stages
+  has_one :account
   
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
@@ -10,21 +10,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :account_type
-
-  has_many :stages
+  attr_accessible :email, :password, :password_confirmation, :remember_me, :account_attributes
   
-  validates :account_type, :inclusion => { :in => [ACCOUNT_TYPE_THEATER, ACCOUNT_TYPE_FESTIVAL], :message => "hodnota nebola zvolená korektne." }
-
+  accepts_nested_attributes_for :account
+  
   after_create do |user|
     user.stages.create(:name=>"Hlavné javisko")
-  end
-  
-  def account_type=(value)
-    write_attribute(:account_type, value.to_s)
-  end
-  
-  def account_type
-    read_attribute(:account_type).to_sym
-  end
+  end 
 end

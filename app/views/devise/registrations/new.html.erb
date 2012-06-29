@@ -1,5 +1,7 @@
 <h2 style="padding: 0 20px 15px;">Registrácia</h2>
 
+<% resource.build_account #dirty but pragmatic in this case - devise controllers are tough to extend %>
+
 <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
   
   <p>
@@ -17,11 +19,18 @@
     <%= f.password_field :password_confirmation, class: "text" %>
   </p>
   
-  <p>
-    <%= f.label :account_type, "Typ účtu" %><br />
-    <%= f.radio_button :account_type, User::ACCOUNT_TYPE_THEATER %> Kino
-    <%= f.radio_button :account_type, User::ACCOUNT_TYPE_FESTIVAL %> Festival
-  </p>
+  <%= f.fields_for :account do |af| %>
+    <p>
+      <%= af.label :account_type, "Typ účtu" %><br />
+      <%= af.radio_button :account_type, Account::TYPE_THEATER %> Kino
+      <%= af.radio_button :account_type, Account::TYPE_FESTIVAL %> Festival
+    </p>
+    
+    <p>
+      <%= af.label :name, "Názov účtu (napr. názov kina alebo festivalu)" %><br />
+      <%= af.text_field :name, class: "text" %>
+    </p>
+  <% end %>
 
   <p class="formend">
     <%= f.submit "Zaregistrovať", class: "submit" %>
