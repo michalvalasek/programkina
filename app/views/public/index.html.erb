@@ -1,1 +1,9 @@
 <h2>Titulná stránka</h2>
+
+<div class="providers-listing">
+  <ul>
+    <% @providers.drop_while{ |p| p.subdomain.nil? }.each do |p| %>
+    <li><%= link_to p.name, root_url(:subdomain => p.subdomain)) %></li>
+    <% end -%>
+  </ul>
+</div>

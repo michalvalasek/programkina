@@ -1,11 +1,11 @@
+require 'subdomain'
+
 Programkina::Application.routes.draw do
   
   get "dashboard" => "dashboard#index", :as => :dashboard
   
   get "settings" => "account#edit", :as => :edit_settings
   put "settings" => "account#update", :as => :update_settings
-
-  get "event/:id" => "jqm#detail", :as => :event
 
   devise_for :users do
     get "/sign_in" => "devise/sessions#new", :as => :sign_in
@@ -18,6 +18,11 @@ Programkina::Application.routes.draw do
   end
 
   resources :events
+  
+  constraints(Subdomain) do
+    match '/' => "jqm#index"
+    get "event/:id" => "jqm#detail"
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -68,6 +73,7 @@ Programkina::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
+  
   root :to => "public#index"
 
   # See how all your routes lay out with "rake routes"

@@ -10,6 +10,11 @@
     <%= f.text_field :name, class: "text", size: 50 %>
   </p>
   
+  <p>
+    <%= f.label :subdomain, "Subdoména s programom" %><br />
+    <%= f.text_field :subdomain, class: "text", size: 50 %>
+  </p>
+  
   <p class="formend">
     <%= f.submit "Uložiť", class: "submit" %>
     <%= link_to "Zrušiť", dashboard_path %>
