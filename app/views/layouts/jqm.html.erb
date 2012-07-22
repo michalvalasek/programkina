@@ -36,6 +36,7 @@
  
     <div data-role="header">
         <h1><%= @provider.nil? ? "ProgramKina.sk" : @provider.name %></h1>
+        <%= yield :header if content_for?(:header) %>
     </div>
  
     <div data-role="content">
@@ -43,6 +44,7 @@
     </div>
  
     <div data-role="footer">
+        <%= yield :footer if content_for?(:footer) %>
         <h4>App by Michal Valášek</h4>
     </div>
  
