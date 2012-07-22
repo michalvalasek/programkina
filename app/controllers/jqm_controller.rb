@@ -6,9 +6,23 @@ class JqmController < ApplicationController
   before_filter :find_provider
   
   def index
-    now = Time.now.strftime("%Y%m%d")
+    @stages = @provider.user.stages
+  end
+  
+  def stage
+    @stage = Stage.find_by_id(params[:id])
+    
     #@events = EventDate.where("date>'#{now}'").group(:event_id).map {|ed| ed.event }
-    @dates = EventDate.where("date>'#{now}'").group(:date)
+    
+    if @stage.nil? || @stage.user != @provider.user
+      flash[:notice] = "Neznáme javisko :("
+      render :not_found
+    else
+      @dates = EventDate.where("date>:now AND stage_id=:stage_id", {
+        :now => Time.now.strftime("%Y%m%d"),
+        :stage_id => @stage.id
+      }).group(:date)
+    end
   end
 
   def detail

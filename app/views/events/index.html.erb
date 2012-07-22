@@ -11,7 +11,7 @@
     <th></th>
   </tr>
 
-  <% @events.each do |event| %>
+  <% @stage.events.each do |event| %>
     <tr class="<%= cycle("even","odd") %>">
       <td><%= event.title %></td>
       <td>

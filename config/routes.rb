@@ -20,8 +20,9 @@ Programkina::Application.routes.draw do
   resources :events
   
   constraints(Subdomain) do
-    match '/' => "jqm#index"
-    get "event/:id" => "jqm#detail"
+    match '/' => "jqm#index", :as => :jqm_root
+    match 'stage/:id' => "jqm#stage", :as => :jqm_stage
+    get "event/:id" => "jqm#detail", :as => :jqm_event
   end
 
   # The priority is based upon order of creation:

@@ -1,0 +1,23 @@
+<% content_for :header do %>
+  <h2><%= @stage.name %></h2>
+<% end %>
+
+<ul data-role="listview" data-filter="true" data-filter-placeholder="Hľadať film podľa názvu...">
+  <% @dates.each do |d| %>
+  <li data-role="list-divider"><%= weekday(d.datetime) %>, <%= d.datetime.strftime("%d.%m.%Y") %></li>
+    <% d.events_on_date.each do |event| %>
+    <li>
+      <a href="<%= jqm_event_path(event) %>" title="Detaily predstavenia">
+        <h3><%= event.title %></h3>
+        <% unless event.orig_title.blank? %>
+        <p><strong><%= event.orig_title %></strong></p>
+        <% end %>
+        <% unless event.info.blank? %>
+        <p><%= event.info %></p>
+        <% end %>
+        <p class="ui-li-aside"><strong><%= event_times(event, d.date) %></strong></p>
+      </a>
+    </li>
+    <% end %>
+  <% end %>
+</ul>
