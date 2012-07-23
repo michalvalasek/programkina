@@ -35,21 +35,19 @@
   <div data-role="page" id="one" data-add-back-btn="true">
  
     <div data-role="header">
-        <h1><%= @provider.nil? ? "ProgramKina.sk" : @provider.name %></h1>
-        <%= yield :header if content_for?(:header) %>
+      <h1><%= link_to (@provider.nil? ? "ProgramKina.sk" : @provider.name), jqm_root_path, {"data-role"=>"button"} %></h1>
+          <%= yield :header %>
     </div>
- 
+
     <div data-role="content">
-        <%= yield %>
+      <%= yield %>
     </div>
- 
+
     <div data-role="footer">
-        <%= yield :footer if content_for?(:footer) %>
-        <h4>App by Michal Valášek</h4>
+      <%= yield :footer %>
+      <h4>App by Michal Valášek</h4>
     </div>
- 
-</div>
-</div>
- 
+
+  </div>
 </body>
 </html>

@@ -1,3 +1,9 @@
+<% content_for :header do %>
+  <div class="ui-bar ui-bar-b">
+    <h2>Program pre javisko: <%= @event.stage.name %></h2>
+  </div>
+<% end %>
+
 <div class="ui-body ui-body-c">
   <h2><%= @event.title %></h2>
   <% if @event.orig_title %>

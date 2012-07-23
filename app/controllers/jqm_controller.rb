@@ -28,7 +28,7 @@ class JqmController < ApplicationController
   def detail
     @event = Event.find_by_id(params[:id])
     if @event
-      render 'detail', layout: 'jqm_page'
+      render :detail
     else
       flash[:notice] = "Predstavenie sa nenašlo :("
       render :not_found
