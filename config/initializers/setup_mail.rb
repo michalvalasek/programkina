@@ -1,6 +1,5 @@
 ActionMailer::Base.delivery_method = :smtp
 ActionMailer::Base.perform_deliveries = true
-ActionMailer::Base.default_charset = "utf-8"
 ActionMailer::Base.raise_delivery_errors = true
 
 ActionMailer::Base.smtp_settings = {
