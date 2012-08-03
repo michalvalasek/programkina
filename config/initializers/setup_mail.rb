@@ -11,5 +11,3 @@ ActionMailer::Base.smtp_settings = {
   :user_name => "michal.valasek@gmail.com",
   :password => "ligkgvfxnndwzjlf"
 }
-
-config.action_mailer.raise_delivery_errors = true
