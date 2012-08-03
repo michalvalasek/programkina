@@ -1,0 +1,9 @@
+production:
+  adapter: postgresql
+  encoding: utf8
+  reconnect: false
+  database: programkina_production
+  pool: 5
+  username: 
+  password:
+  host: localhost
