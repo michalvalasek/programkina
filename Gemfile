@@ -26,13 +26,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancan'
 
-group :development do
-  gem 'sextant'
-end
-
-group :production do
-  gem 'pg'
-end
+gem 'tlsmail'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -48,3 +42,11 @@ gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+
+group :development do
+  gem 'sextant'
+end
+
+group :production do
+  gem 'pg'
+end
