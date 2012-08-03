@@ -13,6 +13,6 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to dashboard_url, :alert => exception.message
+    redirect_to sign_in_url, :alert => exception.message
   end
 end
