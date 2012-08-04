@@ -1,9 +1,32 @@
-<h2>Titulná stránka</h2>
-
-<div class="providers-listing">
-  <ul>
-    <% @providers.drop_while{ |p| p.subdomain.nil? }.each do |p| %>
-    <li><%= link_to p.name, root_url(:subdomain => p.subdomain) %></li>
-    <% end %>
-  </ul>
+<div class="page-header">
+  <h2>Program Vášho kina alebo filmového festivalu ako mobilná aplikácia?</h2>
 </div>
+
+<div class="hero-unit">
+  <h1>ProgramKina.sk</h1>
+  <p>Online publikačná platforma pre mobilne prístupné programy kín a filmových festivalov.</p>
+  <div>
+    <ul>
+        <li>Toto</li>
+        <li>vaša</li>
+        <li>práčka</li>
+        <li>nedokáže!</li>
+      </ul>
+      <a href="<%= sign_up_url %>" class="btn btn-primary btn-large pull-right">Vyskúšajte!</a>
+  </div>
+</div>
+
+<ul class="thumbnails">
+  <li class="span3">
+    <a href="#" class="thumbnail"><img src="http://placehold.it/260x390" alt=""></a>
+  </li>
+  <li class="span3">
+    <a href="#" class="thumbnail"><img src="http://placehold.it/260x390" alt=""></a>
+  </li>
+  <li class="span3">
+    <a href="#" class="thumbnail"><img src="http://placehold.it/260x390" alt=""></a>
+  </li>
+  <li class="span3">
+    <a href="#" class="thumbnail"><img src="http://placehold.it/260x390" alt=""></a>
+  </li>
+</ul>
