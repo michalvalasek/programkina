@@ -54,6 +54,6 @@ module Programkina
     config.assets.enabled = true
     
     # Version of your assets, change this if you want to expire all your assets
-    config.assets.version = '1.2'
+    config.assets.version = '1.5'
   end
 end
