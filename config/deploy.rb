@@ -48,8 +48,4 @@ namespace :deploy do
     end
   end
   before "deploy", "deploy:check_revision"
-  
-  # after 'deploy:update_code' do
-  #   run "cd #{release_path}; RAILS_ENV=production rake assets:precompile"
-  # end
 end
