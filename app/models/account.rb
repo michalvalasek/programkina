@@ -22,4 +22,17 @@ class Account < ActiveRecord::Base
     type = read_attribute(:account_type)
     type.to_sym unless type.nil?
   end
+  
+  def theater?
+    self.account_type == TYPE_THEATER
+  end
+  
+  def festival?
+    self.account_type == TYPE_FESTIVAL
+  end
+  
+  def festival_days
+    user_stages = self.user.stages
+    EventDate.where('stage_id IN (?)', user_stages).group(:date)
+  end
 end

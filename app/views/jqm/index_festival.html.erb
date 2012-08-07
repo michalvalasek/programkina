@@ -1,0 +1,10 @@
+<h3>Vyberte si deň</h3>
+
+<ul data-role="listview" data-inset="true">
+  <% @days.each do |d| %>
+  <li>
+    <%= d.date %>
+    <%#= link_to s.name, jqm_stage_path(s) %>
+  </li>
+  <% end %>
+</ul>
