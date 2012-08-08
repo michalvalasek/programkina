@@ -30,6 +30,17 @@ class JqmController < ApplicationController
       }).group(:date)
     end
   end
+  
+  def day
+    provider_stages = @provider.user.stages
+    @event_dates = EventDate.where('stage_id IN (?) AND date=?', provider_stages, params[:date]).group(:datetime).order(:datetime)
+    if @event_dates.empty?
+      flash[:notice] = "Nič na programe :("
+      render :not_found
+    else
+      @today = @event_dates.first.datetime
+    end
+  end
 
   def detail
     @event = Event.find_by_id(params[:id])

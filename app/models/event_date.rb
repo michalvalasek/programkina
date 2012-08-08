@@ -11,10 +11,15 @@ class EventDate < ActiveRecord::Base
     record.stage_id = record.event.stage.id
   end
   
-  def events_on_date
+  def events_on_date_and_stage
     EventDate.where(:date => self.date, :stage_id => self.stage_id).group(:event_id).collect do |ed|
       ed.event
     end
   end
-
+  
+  def events_on_datetime
+    EventDate.where(:datetime => self.datetime).group(:event_id).collect do |ed|
+      ed.event
+    end
+  end
 end
