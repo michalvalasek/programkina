@@ -20,7 +20,7 @@ jQuery ->
     $('.datetime_picker').datetimepicker(datetimepicker_config)
 
     $('form').on 'click', '.remove_fields', (event) ->
-        $(this).prev('input[type=hidden').val('1')
+        $(this).prev('input[type=hidden]').val('1')
         $(this).closest('div.projection-date').hide()
         event.preventDefault()
 
