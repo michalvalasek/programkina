@@ -1,7 +1,7 @@
 .miniColors-trigger {
 	height: 22px;
 	width: 22px;
-	background: url(../images/trigger.png) center no-repeat;
+	background: url(/assets/trigger.png) center no-repeat;
 	vertical-align: middle;
 	margin: 0 .25em;
 	display: inline-block;
@@ -12,7 +12,7 @@
 	position: absolute;
 	width: 175px;
 	height: 150px;
-	background: url(../images/tt.png) 0 0 repeat;
+	background: url(/assets/tt.png) 0 0 repeat;
 	border: solid 1px #000;
 	padding: 5px;
 	z-index: 999999;
@@ -37,7 +37,7 @@
 	left: 5px;
 	width: 150px;
 	height: 150px;
-	background: url(../images/gradient.png) center no-repeat;
+	background: url(/assets/gradient.png) center no-repeat;
 	cursor: crosshair;
 }
 
@@ -47,7 +47,7 @@
 	left: 160px;
 	width: 20px;
 	height: 150px;
-	background: url(../images/rainbow.png) center no-repeat;
+	background: url(/assets/rainbow.png) center no-repeat;
 	cursor: crosshair;
 }
 
@@ -55,7 +55,7 @@
 	position: absolute;
 	width: 11px;
 	height: 11px;
-	background: url(../images/circle.gif) center no-repeat;
+	background: url(/assets/circle.gif) center no-repeat;
 }
 
 .miniColors-huePicker {
@@ -63,5 +63,5 @@
 	left: -3px;
 	width: 26px;
 	height: 3px;
-	background: url(../images/line.gif) center no-repeat;
+	background: url(/assets/line.gif) center no-repeat;
 }

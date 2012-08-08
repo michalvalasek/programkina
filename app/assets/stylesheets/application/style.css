@@ -10,7 +10,7 @@ Author URI: http://themeforest.net/user/enstyled
 * { padding:0; margin:0; }
 	
 body {
-	background: #fff url(../images/sb.gif) top left repeat-y;
+	background: #fff url(/assets/sb.gif) top left repeat-y;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 13px;
 	color: #454545;
@@ -61,7 +61,7 @@ a:hover {
 #header .userprofile {
 	float: right;
 	height: 50px;
-	background: url(../images/hsep.gif) top right repeat-y;
+	background: url(/assets/hsep.gif) top right repeat-y;
 	padding-right: 20px;
 	}
 
@@ -79,7 +79,7 @@ a:hover {
 	}
 
 #header .userprofile ul li:hover {
-	background: url(../images/tt.png) 0 0 repeat;
+	background: url(/assets/tt.png) 0 0 repeat;
 	}
 
 #header .userprofile ul li a {
@@ -105,7 +105,7 @@ a:hover {
 	
 #header .userprofile ul li ul {
 	display: none;
-	background: url(../images/tt.png) 0 0 repeat;
+	background: url(/assets/tt.png) 0 0 repeat;
 	font-size: 11px;
 	position: absolute;
 	padding: 5px 0;
@@ -150,7 +150,7 @@ a:hover {
 #header form input.text {
 	width: 100px;
 	border: 0;
-	background: url(../images/srch.gif) 0 0 no-repeat;
+	background: url(/assets/srch.gif) 0 0 no-repeat;
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 11px;
 	color: #aaa;
@@ -169,7 +169,7 @@ a:hover {
 	height: 29px;
 	float: left;
 	border: 0;
-	background: url(../images/srch.gif) top right no-repeat;
+	background: url(/assets/srch.gif) top right no-repeat;
 	outline: none;
 	cursor: pointer;
 	}
@@ -181,14 +181,14 @@ a:hover {
 	position: absolute;
 	top: 17px;
 	right: 8px;
-	background: url(../images/srch_loader.gif) center no-repeat;
+	background: url(/assets/srch_loader.gif) center no-repeat;
 	}	
 	
 #header form .quickresults {
 	display: none;
 	width: 200px;
 	padding: 5px 0;
-	background: url(../images/tt.png) 0 0 repeat;
+	background: url(/assets/tt.png) 0 0 repeat;
 	position: absolute;
 	color: #aaa;
 	font-size: 11px;
@@ -236,7 +236,7 @@ a:hover {
 	}
 
 #sidebar ul#nav li a strong {
-	background: url(../images/mac.png) center right no-repeat;
+	background: url(/assets/mac.png) center right no-repeat;
 	display: block;
 	margin-right: -1px;
 	color: #333;
@@ -247,7 +247,7 @@ a:hover {
 	}
 
 #sidebar ul#nav li a:hover {
-	background: #005598 url(../images/mbg.jpg) 0 0 repeat-x;
+	background: #005598 url(/assets/mbg.jpg) 0 0 repeat-x;
 	border-top: 1px solid #0095d8;
 	border-bottom: 1px solid #003868;
 	color: #fff;
@@ -345,17 +345,17 @@ a:hover {
 
 #sidebar .status_box ul li a.online {
 	padding-left: 12px;
-	background: url(../images/st_online.png) 0 3px no-repeat;
+	background: url(/assets/st_online.png) 0 3px no-repeat;
 	}
 
 #sidebar .status_box ul li a.warning {
 	padding-left: 12px;
-	background: url(../images/st_warning.png) 0 3px no-repeat;
+	background: url(/assets/st_warning.png) 0 3px no-repeat;
 	}
 	
 #sidebar .status_box ul li a.offline {
 	padding-left: 12px;
-	background: url(../images/st_offline.png) 0 3px no-repeat;
+	background: url(/assets/st_offline.png) 0 3px no-repeat;
 	}
 		
 	
@@ -437,12 +437,12 @@ a:hover {
 
 #content table tr th.headerSortUp {
 	color: #333;
-	background: url(../images/sortd.gif) 95% center no-repeat;
+	background: url(/assets/sortd.gif) 95% center no-repeat;
 	}
 
 #content table tr th.headerSortDown {
 	color: #333;
-	background: url(../images/sorta.gif) 95% center no-repeat;
+	background: url(/assets/sorta.gif) 95% center no-repeat;
 	}
 
 #content table tr td {
@@ -481,7 +481,7 @@ a:hover {
 #content .tableactions input.submit {
 	font-family: Arial, Helvetica, sans-serif;
 	border: 1px solid #014076;
-	background: #085a9f url(../images/mbg.jpg) center repeat-x;
+	background: #085a9f url(/assets/mbg.jpg) center repeat-x;
 	padding: 1px 6px;
 	line-height: 15px;
 	font-size: 11px;
@@ -497,7 +497,7 @@ a:hover {
 	}
 
 #content .tableactions input.submit:hover {	
-	background: #ed9c34 url(../images/mbgh.jpg) center repeat-x;
+	background: #ed9c34 url(/assets/mbgh.jpg) center repeat-x;
 	border: 1px solid #c05f05;
 	text-shadow: 0 1px 0 #6e3704;
 
@@ -613,25 +613,25 @@ a:hover {
 	
 #content .message.errormsg {
 	border: 1px solid #e9c59b;
-	background: #ffecce url(../images/error.gif) 12px 12px no-repeat;
+	background: #ffecce url(/assets/error.gif) 12px 12px no-repeat;
 	color: #e3302c;
 	}
 	
 #content .message.success {
 	border: 1px solid #bfde84;
-	background: #edfbd8 url(../images/success.gif) 12px 12px no-repeat;
+	background: #edfbd8 url(/assets/success.gif) 12px 12px no-repeat;
 	color: #508600;
 	}
 		
 #content .message.info {
 	border: 1px solid #bbdbe0;
-	background: #ecf9ff url(../images/info.gif) 12px 12px no-repeat;
+	background: #ecf9ff url(/assets/info.gif) 12px 12px no-repeat;
 	color: #0888c3;
 	}
 	
 #content .message.warning {
 	border: 1px solid #e5e181;
-	background: #fefde2 url(../images/warning.gif) 12px 12px no-repeat;
+	background: #fefde2 url(/assets/warning.gif) 12px 12px no-repeat;
 	color: #666;
 	}
 	
@@ -640,7 +640,7 @@ a:hover {
 	float: right;
 	width: 16px;
 	height: 16px;
-	background: url(../images/close.png) 0 0 no-repeat;
+	background: url(/assets/close.png) 0 0 no-repeat;
 	margin-top: 2px;
 	cursor: pointer;
 	-moz-opacity: 0.7;
@@ -659,7 +659,7 @@ a:hover {
 	width: 160px;
 	padding: 20px;
 	color: #eee;
-	background: url(../images/tt.png) 0 0 repeat;
+	background: url(/assets/tt.png) 0 0 repeat;
 	background: rgba(0, 0, 0, 0.7);
 	font-weight: bold;
 	text-align: center;
@@ -686,7 +686,7 @@ a:hover {
 /* Progress bars */
 
 #content .progress_bar {
-	background: #eee url(../images/prsep.gif) center repeat;
+	background: #eee url(/assets/prsep.gif) center repeat;
 	padding: 3px;
 	padding-right: 5px;
 	border: 1px solid #ccc;
@@ -709,7 +709,7 @@ a:hover {
 
 #content .progress_bar .progress_complete {
 	text-align: center;
-	background: #0180c8 url(../images/prstr.png) center repeat-x;
+	background: #0180c8 url(/assets/prstr.png) center repeat-x;
 	border: 1px solid #005aa4;
 	-moz-box-shadow: inset 0 1px 0 #36b7f1;
 	-webkit-box-shadow: inset 0 1px 0 #36b7f1;
@@ -720,7 +720,7 @@ a:hover {
 	}
 	
 #content .progress_bar .progress_complete.green {
-	background: #34ad10 url(../images/prstr.png) center repeat-x;
+	background: #34ad10 url(/assets/prstr.png) center repeat-x;
 	border: 1px solid #437f43;	
 	-moz-box-shadow: inset 0 1px 0 #76d559;
 	-webkit-box-shadow: inset 0 1px 0 #76d559;
@@ -728,7 +728,7 @@ a:hover {
 	}
 
 #content .progress_bar .progress_complete.red {
-	background: #e93030 url(../images/prstr.png) center repeat-x;
+	background: #e93030 url(/assets/prstr.png) center repeat-x;
 	border: 1px solid #900606;
 	-moz-box-shadow: inset 0 1px 0 #ef7d7d;
 	-webkit-box-shadow: inset 0 1px 0 #ef7d7d;
@@ -736,7 +736,7 @@ a:hover {
 	}
 	
 #content .progress_bar .progress_complete.orange {
-	background: #ffaa24 url(../images/prstr.png) center repeat-x;
+	background: #ffaa24 url(/assets/prstr.png) center repeat-x;
 	border: 1px solid #c37700;
 	-moz-box-shadow: inset 0 1px 0 #f4db81;
 	-webkit-box-shadow: inset 0 1px 0 #f4db81;
@@ -821,7 +821,7 @@ a:hover {
 	font-weight: bold;
 	color: #fff;
 	border: 1px solid #014076;
-	background: #085a9f url(../images/mbg.jpg) center repeat-x;
+	background: #085a9f url(/assets/mbg.jpg) center repeat-x;
 	padding: 4px 8px;
 	text-shadow: 0 1px 0 #000;
 	cursor: pointer;
@@ -865,7 +865,7 @@ a:hover {
 	width: 80px;
 	padding-right: 36px;
 	cursor: pointer;
-	background: url(../images/cal.jpg) center right no-repeat;
+	background: url(/assets/cal.jpg) center right no-repeat;
 	}
 	
 #content form input.color_picker {
@@ -903,7 +903,7 @@ a:hover {
 	float: left;
 	width: 80px;
 	height: 26px;
-	background: url(../images/onoff.gif) 0 0 no-repeat;
+	background: url(/assets/onoff.gif) 0 0 no-repeat;
 	cursor: pointer;
 	position: relative;
 	overflow: hidden;
@@ -916,7 +916,7 @@ a:hover {
 	}
 
 #content form .onoff_box.checked {
-	background: url(../images/onoff.gif) -40px 0 no-repeat;
+	background: url(/assets/onoff.gif) -40px 0 no-repeat;
 	}
 
 #content form .onoff_box input {
@@ -940,7 +940,7 @@ a:hover {
 	font-weight: bold;
 	color: #fff;
 	border: 1px solid #014076;
-	background: #085a9f url(../images/mbg.jpg) center repeat-x;
+	background: #085a9f url(/assets/mbg.jpg) center repeat-x;
 	padding: 7px 15px;
 	vertical-align: middle;
 	text-shadow: 0 1px 0 #000;
@@ -956,7 +956,7 @@ a:hover {
 	}
 	
 #content form input.submit:hover {
-	background: #ed9c34 url(../images/mbgh.jpg) center repeat-x;
+	background: #ed9c34 url(/assets/mbgh.jpg) center repeat-x;
 	border: 1px solid #c05f05;
 	text-shadow: 0 1px 0 #6e3704;
 
@@ -1020,7 +1020,7 @@ a:hover {
 #content .imglist li ul {
 	position: absolute;
 	z-index: 10;
-	background: url(../images/imgo.gif) center no-repeat;
+	background: url(/assets/imgo.gif) center no-repeat;
 	width: 62px;
 	height: 58px;
 	left: 20px;
@@ -1072,8 +1072,8 @@ a:hover {
 	outline: none;
 	}
 	
-#content .imglist li ul li.view a:hover { background: url(../images/imgt.gif) bottom center no-repeat; }
-#content .imglist li ul li.delete a:hover { background: url(../images/imgb.gif) top center no-repeat; }
+#content .imglist li ul li.view a:hover { background: url(/assets/imgt.gif) bottom center no-repeat; }
+#content .imglist li ul li.delete a:hover { background: url(/assets/imgb.gif) top center no-repeat; }
 
 
 /* Text boxes */
@@ -1272,7 +1272,7 @@ a:hover {
 	height: 22px;
 	outline: none;
 	line-height: normal;
-	background: url(../images/handle.png) top left no-repeat;
+	background: url(/assets/handle.png) top left no-repeat;
 	}
 	
 .ui-slider .ui-slider-range {
@@ -1312,7 +1312,7 @@ a:hover {
 	text-decoration: none;
 	font-weight: bold;
 	float: right;
-	background: url(../images/hsep.gif) 0 0 repeat-y;
+	background: url(/assets/hsep.gif) 0 0 repeat-y;
 	}
 	
 .backlink:hover {

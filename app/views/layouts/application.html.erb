@@ -26,7 +26,7 @@
     <% if user_signed_in? %>
       <div class="userprofile">
       <ul>
-        <li><a href="#"><%= image_tag "/images/avatar.gif" %> <%= current_user.email %></a>
+        <li><a href="#"><%= image_tag "/assets/avatar.gif" %> <%= current_user.email %></a>
           <ul>
             <li><%= link_to "Nastavenia účtu", edit_settings_path %></li>
             <li><%= link_to "Odhlásiť sa", sign_out_path %></li>

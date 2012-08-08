@@ -36,7 +36,7 @@
 .visualize .chart_tooltip {
 	padding: 6px 7px;
 	background: #000;
-	background: url(../images/tt.png) 0 0 repeat;
+	background: url(/assets/tt.png) 0 0 repeat;
 	margin: 3px 4px 0;
 	color: #fff;
 	font-size: 11px;
