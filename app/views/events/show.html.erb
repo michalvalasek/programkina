@@ -1,4 +1,28 @@
+<h4><%= @event.stage.name %></h4>
+
 <h2><%= @event.title %></h2>
+
+<% unless @event.orig_title.blank? %>
+<p><strong>Pôvodný názov:</strong> <%= @event.orig_title %></p>
+<% end -%>
+
+<p><strong>Popis:</strong> <%= @event.description %></p>
+
+<p><strong>Typ podujatia:</strong> <%= @event.event_type %></p>
+
+<p><strong>Typ projekcie:</strong> <%= @event.projection_type %></p>
+
+<p><strong>Doplňujúce informácie o premietaní:</strong> <%= @event.info %></p>
+
+<div class="textbox half left">
+  <h2>Premietania</h2>
+  <div class="textbox_content">
+    <% @event.event_dates.each do |ed| %>
+      <%= formated_date(ed.datetime) %> o <%= ed.datetime.strftime("%H:%M") %>
+    <% end -%>
+  </div>
+</div>
+<div class="clear"></div>
 
 <%= link_to 'Späť na zoznam podujatí', stage_events_path(@stage) %> | 
 <%= link_to 'Upraviť toto podujatie', edit_stage_event_path(@stage, @event) %>

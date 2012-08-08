@@ -1,3 +1,5 @@
+# encoding:utf-8
+
 module ApplicationHelper
   
   def main_menu_item_for(path, text, alt, img_name)
@@ -23,6 +25,20 @@ module ApplicationHelper
       Account::TYPE_FESTIVAL => "Festival",
     }
     dict[current_user.account.account_type]
+  end
+  
+  def weekday(datetime)
+    wdays = %w{Nedeľa Pondelok Utorok Streda Štvrtok Piatok Sobota}
+    w = datetime.strftime("%w")
+    wdays[w.to_i]
+  end
+  
+  def formated_date(datetime)
+    weekday(datetime) + " - " + datetime.strftime("%d.%m.%Y")
+  end
+  
+  def formated_datetime(datetime)
+    weekday(datetime) + " - " + datetime.strftime("%d.%m.%Y o %H:%M")
   end
 
 end
