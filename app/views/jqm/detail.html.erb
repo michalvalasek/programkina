@@ -16,7 +16,7 @@
   <ul data-role="listview" data-inset="true" data-dividertheme="b">
     <li data-role="list-divider">Premietania</li>
     <% @event.event_dates.each do |ed| %>
-    <li><%= ed.datetime.strftime("%d.%m.%Y - %H:%M") %> - <%= weekday(ed.datetime) %></li>
+    <li><%= weekday(ed.datetime) %> <%= ed.datetime.strftime("%d.%m.%Y o %H:%M") %> - <%= ed.event.stage.name %></li>
     <% end %>
   </ul>
 

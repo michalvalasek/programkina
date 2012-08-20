@@ -17,8 +17,11 @@ class EventDate < ActiveRecord::Base
     end
   end
   
-  def events_on_datetime
-    EventDate.where(:datetime => self.datetime).group(:event_id).collect do |ed|
+  def events_on_datetime(stage_id = nil)
+    conds = {:datetime => self.datetime}
+    conds[:stage_id] = stage_id unless stage_id.nil?
+    
+    EventDate.where(conds).group(:event_id).collect do |ed|
       ed.event
     end
   end

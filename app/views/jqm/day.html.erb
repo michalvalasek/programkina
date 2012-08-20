@@ -1,13 +1,16 @@
 <% content_for :header do %>
-  <div class="ui-bar ui-bar-b">
+  <div class="ui-bar ui-bar-e">
     <h2>Program pre deň: <%= formated_date(@today) %></h2>
+    <div style="position:absolute;right:5px;top:0;">
+      <%= select_tag "stage", options_from_collection_for_select(@provider_stages, :id, :name) %>
+    </div>
   </div>
 <% end %>
 
 <ul data-role="listview" data-filter="true" data-filter-placeholder="Hľadať film podľa názvu...">
   <% @event_dates.each do |ed| %>
   <li data-role="list-divider"><%= ed.datetime.strftime("%H:%M") %></li>
-    <% ed.events_on_datetime.each do |event| %>
+    <% ed.events_on_datetime(@selected_stage_id).each do |event| %>
     <li>
       <a href="<%= jqm_event_path(event) %>" title="Detaily predstavenia">
         <h3><%= event.title %></h3>
