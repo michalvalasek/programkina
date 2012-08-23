@@ -1,0 +1,19 @@
+<h2>Špeciálne skripty pre Cinematik</h2>
+
+<table>
+  <tbody>
+    <tr>
+      <td><strong>Feeder:</strong><br />Stiahne dáta z Google Calendaru a naplní nimi databázu.</td>
+      <td><%= link_to "spustiť", scripts_url(:subaction=>"feeder") %></td>
+    </tr>
+  </tbody>
+</table>
+
+<% unless @debug.nil? %>
+<pre>
+  <%= debug @debug.first %>
+</pre>
+<pre>
+  <%= debug @debug.first.event_dates unless @debug.empty? %>
+</pre>
+<% end -%>

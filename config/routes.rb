@@ -2,10 +2,14 @@ require 'subdomain'
 
 Programkina::Application.routes.draw do
   
+  get "scripts/index"
+
   get "dashboard" => "dashboard#index", :as => :dashboard
   
   get "settings" => "account#edit", :as => :edit_settings
   put "settings" => "account#update", :as => :update_settings
+  
+  get "scripts(/:subaction)" => "scripts#index", :as => :scripts
 
   devise_for :users do
     get "/sign_in" => "devise/sessions#new", :as => :sign_in
