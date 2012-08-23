@@ -41,7 +41,7 @@
     <ul id="nav">
       <li><%= main_menu_item_for dashboard_path, "Úvod", "Úvodná obrazovka", "dashboard.png" %></li>
       <li>
-          <%= main_menu_item_for stages_path, "Javiská", "Správa javísk", "support.png" %>
+          <%= main_menu_item_for stages_path, "Sály", "Správa sál", "support.png" %>
           <ul>
           <% current_user.stages.each do |stage| %>
             <li><%= main_menu_item_for stage_events_path(stage), stage.name, "Spravovať program", "calendar.png" %></li>
