@@ -3,17 +3,12 @@
 <table>
   <tbody>
     <tr>
-      <td><strong>Feeder:</strong><br />Stiahne dáta z Google Calendaru a naplní nimi databázu.</td>
-      <td><%= link_to "spustiť", scripts_url(:subaction=>"feeder") %></td>
+      <td><strong>Feeder:</strong><br />Stiahne dáta z Google Calendaru a naplní nimi databázu. Akcia môže trvať niekoľko minút.</td>
+      <td><%= link_to "spustiť", scripts_url(:subaction=>"feeder"), :class=>"run_script_button" %></td>
     </tr>
   </tbody>
 </table>
 
-<% unless @debug.nil? %>
-<pre>
-  <%= debug @debug.first %>
-</pre>
-<pre>
-  <%= debug @debug.first.event_dates unless @debug.empty? %>
-</pre>
-<% end -%>
+<div id="spinner" class="spinner" style="display:none;">
+  <img id="img-spinner" src="<%= image_path('spinner.gif') %>" alt="Loading" />
+</div>
