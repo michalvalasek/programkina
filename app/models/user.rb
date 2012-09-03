@@ -15,6 +15,6 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :account
   
   after_create do |user|
-    user.stages.create(:name=>"Hlavné javisko")
+    user.stages.create(:name=>"Hlavná sála")
   end 
 end
