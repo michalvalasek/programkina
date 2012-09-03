@@ -81,6 +81,7 @@ GEM
     net-ssh (2.5.2)
     net-ssh-gateway (1.1.0)
       net-ssh (>= 1.99.1)
+    nokogiri (1.5.5)
     orm_adapter (0.0.6)
     pg (0.14.0)
     polyglot (0.3.3)
@@ -151,6 +152,7 @@ DEPENDENCIES
   jquery-rails
   jquery-ui-rails
   mysql2
+  nokogiri
   pg
   rails (= 3.2.1)
   sass-rails (~> 3.2.3)
