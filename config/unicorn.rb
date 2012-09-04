@@ -7,3 +7,7 @@ stdout_path "#{root}/log/unicorn.log"
 listen "/tmp/unicorn.programkina.sock"
 worker_processes 2
 timeout 30
+
+before_exec do |server|
+  ENV["BUNDLE_GEMFILE"] = "#{root}/Gemfile"
+end
