@@ -29,6 +29,8 @@
         <li><a href="#"><%= image_tag "/assets/avatar.gif" %> <%= current_user.email %></a>
           <ul>
             <li><%= link_to "Nastavenia účtu", edit_settings_path %></li>
+            <li><%= link_to "Špeciálne skripty", scripts_path %></li>
+            <li></li>
             <li><%= link_to "Odhlásiť sa", sign_out_path %></li>
           </ul>
         </li>
@@ -43,7 +45,7 @@
       <li>
           <%= main_menu_item_for stages_path, "Sály", "Správa sál", "support.png" %>
           <ul>
-          <% current_user.stages.each do |stage| %>
+          <% current_user.stages.order(:id).each do |stage| %>
             <li><%= main_menu_item_for stage_events_path(stage), stage.name, "Spravovať program", "calendar.png" %></li>
           <% end %>
           </ul>

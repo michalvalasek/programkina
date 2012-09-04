@@ -28,39 +28,43 @@ class ScriptsController < ApplicationController
     stages = {}
     current_user.stages.each { |s| stages[s.name] = s.id }
     
-    events_created = []
-    events_updated = []
+    events_created = 0
+    events_updated = 0
     
     #feed.events_in_year(2011)[0..3].each do |e| # TESTING
-    feed.events_in_year(2011).each do |e| # REAL THING
+    feed.events_in_year(2012).each do |e| # REAL THING
       if stages.include?(e.location)
+        
         event = Event.new
         event.stage_id = stages[e.location]
         event.title = e.summary
         
         event.event_dates.build(:datetime => e.dtstart)
-        
-        existing_event = Event.find_by_title(event.title)
+          
+        existing_event = Event.where(:stage_id => current_user.stages, :title => e.summary).first
         if existing_event.nil?
           # create new event
-          
           desc = e.description.split("\n\n")
           desc.first.match(/\A([^;]*);(.*)/) do |m|
             event.orig_title = m[1]
             event.info = m[2]
           end
+          event.description = "#{desc[1]}<br /><br /><i>#{desc[2]}</i>".html_safe
           
-          info_from_web = parse_cinematik_page(desc.last)
-          unless info_from_web.empty?
-            event.description = info_from_web[:description]
-            event.trailer = info_from_web[:trailer]
-            event.poster = info_from_web[:poster]
+          e.description.match(/http:\/\/www\.youtube\.com\/watch\?v=(\S+)/) do |m|
+            event.trailer = m[1]
           end
           
+          e.description.match(/(http:\/\/www\.cinematik\.sk\/[\S]*)/) do |m|
+            info_from_web = parse_cinematik_page(m[0])
+            event.description = info_from_web[:description] unless info_from_web[:description].blank?
+            event.trailer = info_from_web[:trailer] if event.trailer.blank? && !info_from_web[:trailer].blank?
+            event.poster = info_from_web[:poster] unless info_from_web[:poster].blank?
+          end
           event.event_type = "Filmové predstavenie"
           event.projection_type = "2D"
           
-          events_created << event
+          events_created += 1
           
           event.save
         else
@@ -75,22 +79,23 @@ class ScriptsController < ApplicationController
             updated = true
           end
           
-          events_updated << existing_event.title if updated
+          events_updated += 1 if updated
         end
       end
     end
     
-    redirect_to scripts_path, notice: "Vytvorených #{events_created.size}, updatnutých: #{events_updated.size}"
+    redirect_to scripts_path, notice: "Feeder skript dokončený.<br />Vytvorených podujatí: #{events_created}<br />Updatnutých podujatí: #{events_updated}".html_safe
+  end
+  
+  def cinematik_cleaner
+    events_deleted = Event.where(:stage_id => current_user.stages).delete_all
+    redirect_to scripts_path, notice: "Cleaner skript dokončený.<br />Vymazaných podujatí: #{events_deleted}".html_safe
   end
   
   private
   
     def parse_cinematik_page(url)
-      output = {
-        :description => "",
-        :trailer => "",
-        :poster => nil
-      }
+      output = {}
       url.match(/\Ahttp:\/\/www\.cinematik\.sk\/.*\z/) do |m|
         doc = Nokogiri::HTML(open(m[0]))
         nodes = doc.css('.entry > p, .entry > ul')
