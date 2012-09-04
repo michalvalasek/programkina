@@ -1,6 +1,6 @@
 <% content_for :header do %>
   <div class="ui-bar ui-bar-e">
-    <h2>Program pre deň: <%= formated_date(@today) %></h2>
+    <h2><%= formated_date(@today) %></h2>
     <div style="position:absolute;right:5px;top:0;">
       <%= select_tag "stage_filter", options_for_select(@provider_stages.map{|s| [s.name, s.id]}, params[:stage]), :prompt => "Všetky sály" %>
     </div>
