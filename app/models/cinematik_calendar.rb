@@ -7,7 +7,7 @@ class CinematikCalendar
   attr_accessor :cal
   
   def initialize(ics = GOOGLE_ICS)
-    self.cal = Icalendar.parse(open(ics).read).first
+    self.cal = Icalendar::parse(open(ics).read).first
   #rescue *HTTP_ERRORS => error 
   end
   

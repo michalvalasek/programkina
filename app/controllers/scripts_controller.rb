@@ -31,8 +31,7 @@ class ScriptsController < ApplicationController
     events_created = 0
     events_updated = 0
     
-    #feed.events_in_year(2011)[0..3].each do |e| # TESTING
-    feed.events_in_year(2012).each do |e| # REAL THING
+    feed.events_in_year(2012).each do |e|
       if stages.include?(e.location)
         
         event = Event.new
@@ -45,11 +44,13 @@ class ScriptsController < ApplicationController
         if existing_event.nil?
           # create new event
           desc = e.description.split("\n\n")
-          desc.first.match(/\A([^;]*);(.*)/) do |m|
-            event.orig_title = m[1]
-            event.info = m[2]
+          unless desc.empty?
+            desc.first.match(/\A([^;]*);(.*)/) do |m|
+              event.orig_title = m[1]
+              event.info = m[2]
+            end
+            event.description = "#{desc[1]}<br /><br /><i>#{desc[2]}</i>".html_safe
           end
-          event.description = "#{desc[1]}<br /><br /><i>#{desc[2]}</i>".html_safe
           
           e.description.match(/http:\/\/www\.youtube\.com\/watch\?v=(\S+)/) do |m|
             event.trailer = m[1]
