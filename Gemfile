@@ -28,7 +28,7 @@ gem 'jquery-rails'
 gem 'devise'
 gem 'cancan'
 
-gem "icalendar", "~> 1.1.6"
+gem "icalendar", "~> 1.2.0"
 gem 'nokogiri'
 
 # To use ActiveModel has_secure_password
@@ -48,8 +48,4 @@ gem 'capistrano'
 
 group :development do
   gem 'sextant'
-end
-
-group :production do
-  gem 'pg'
 end
