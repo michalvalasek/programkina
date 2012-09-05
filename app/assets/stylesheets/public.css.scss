@@ -10,3 +10,16 @@ body { padding-top: 60px; }
   padding: 35px 0 36px 0;
   border-top: 1px solid #E5E5E5;
 }
+
+ul.features {
+  margin-top: 20px;
+  li {
+    font-size:16px;
+    font-weight:lighter;
+    line-height: 26px;
+  }
+}
+
+.hero-unit {
+  padding-bottom: 40px;
+}

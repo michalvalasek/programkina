@@ -3,10 +3,12 @@
 </div>
 
 <div class="hero-unit">
-  <h1>ProgramKina.sk</h1>
-  <p>Online publikačná platforma pre mobilne prístupné programy kín a filmových festivalov.</p>
-  <div>
-    <ul>
+  <div class="row">
+    <div class="span7">
+      <h1>ProgramKina.sk</h1>
+      <br />
+      <p>Online publikačná platforma pre mobilne prístupné programy kín a filmových festivalov.</p>
+      <ul class="features" class="unstyled">
         <li>Jednoduchá správa programov.</li>
         <li>Podpora pre viacero sál - paralelné lineupy.</li>
         <li>Výstupom je webaplikácia použiteľná vo všetkých moderných telefónoch.</li>
@@ -16,20 +18,30 @@
       <!-- NOT YET
       <a href="<%= sign_up_url %>" class="btn btn-primary btn-large pull-right">Vyskúšajte!</a>
        -->
+    </div>
+    <div class="span3">
+      <div class="thumbnail">
+        <a href="http://cinematik.programkina.sk">
+          <img src="<%= image_path('cinematik.png') %>" alt="">
+        </a>
+        <h3>Cinematik 2012</h3>
+        <p>Náš systém používa aj filmový festival Cinematik 2012 v Piešťanoch!</p>
+      </div>
+    </div>
   </div>
 </div>
 
 <ul class="thumbnails">
   <li class="span3">
-    <a href="#" class="thumbnail"><img src="http://placehold.it/260x390" alt=""></a>
+    <a href="" class="thumbnail"><img src="<%= image_path('screenshots/cinematic1.png') %>" alt="Screenshot 1"></a>
   </li>
   <li class="span3">
-    <a href="#" class="thumbnail"><img src="http://placehold.it/260x390" alt=""></a>
+    <a href="#" class="thumbnail"><img src="<%= image_path('screenshots/cinematic2.png') %>" alt="Screenshot 2"></a>
   </li>
   <li class="span3">
-    <a href="#" class="thumbnail"><img src="http://placehold.it/260x390" alt=""></a>
+    <a href="#" class="thumbnail"><img src="<%= image_path('screenshots/cinematic3.png') %>" alt="Screenshot 3"></a>
   </li>
   <li class="span3">
-    <a href="#" class="thumbnail"><img src="http://placehold.it/260x390" alt=""></a>
+    <a href="#" class="thumbnail"><img src="<%= image_path('screenshots/cinematic4.png') %>" alt="Screenshot 4"></a>
   </li>
 </ul>
