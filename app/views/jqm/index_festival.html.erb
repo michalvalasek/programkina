@@ -2,12 +2,22 @@
   <img src="<%= image_path('cinematik.png') %>" alt="Logo">
 </div>
 
-<h3>Vyberte si deň</h3>
+<h3><center>Vyberte si deň</center></h3>
 
 <ul data-role="listview" data-inset="true">
   <% @days.each do |d| %>
   <li>
     <%= link_to formated_date(d.datetime), jqm_day_path(d.date) %>
+  </li>
+  <% end %>
+</ul>
+
+<h3><center>Vyberte si sálu</center></h3>
+
+<ul data-role="listview" data-inset="true">
+  <% @stages.each do |s| %>
+  <li>
+    <%= link_to s.name, jqm_stage_path(s) %>
   </li>
   <% end %>
 </ul>

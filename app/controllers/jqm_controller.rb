@@ -6,8 +6,8 @@ class JqmController < ApplicationController
   before_filter :find_provider
   
   def index
+    @stages = @provider.user.stages
     if @provider.theater?
-      @stages = @provider.user.stages
       render :index_theater
     elsif @provider.festival?
       @days = @provider.festival_days
