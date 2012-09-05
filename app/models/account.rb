@@ -6,7 +6,7 @@ class Account < ActiveRecord::Base
   TYPE_THEATER = :theater
   TYPE_FESTIVAL = :festival
   
-  attr_accessible :account_type, :name, :subdomain
+  attr_accessible :account_type, :name, :subdomain, :notification
   
   validate :account_type, :inclusion => { :in => [TYPE_THEATER, TYPE_FESTIVAL], :message => "hodnota nebola zvolená korektne." }
   validate :name, :subdomain, :presence

@@ -1,10 +1,37 @@
-<h2>Dashboard</h2>
+<div class="textbox half left">
+  <h2>Notifikácie</h2>
+  <div class="textbox_content">
+    <% unless @notification.blank? %>
+    <strong>Aktuálna notifikácia:</strong>
+    <div class="message warning" style="display:block;">
+      <%= @notification %>
+    </div>
+    <% end %>
+    
+    <%= form_tag notification_url, method: :post do %>
+      <div class="field">
+        <%= label_tag :notification, "Nastaviť text notifikácie na:" %><br />
+        <%= text_area_tag :notification, nil, rows: 4, cols: 64 %>
+      </div>
+      
+      <div class="actions">
+        <%= submit_tag "Nastaviť", :class => "submit" %>
+      </div>
+    <% end %>
+  </div>
+</div>
 
-<h3>Vaše sály:</h3>
-<ul>
-<% @stages.each do |stage| %>
-  <li><%= stage.name %>: <%= stage.events.count %> predstavení</li>
-<% end %>
-<%= "Zatiaľ nemáte vytvorené žiadne sály" if @stages.empty? %>
-<%= link_to "Spravovať sály", stages_path %>
-</ul>
+<div class="textbox half right">
+  <h2>Vaše sály:</h2>
+  <div class="textbox_content">
+    <ul>
+      <% @stages.each do |stage| %>
+      <li><%= stage.name %>: <%= stage.events.count %> predstavení</li>
+      <% end %>
+    </ul>
+    <%= "Zatiaľ nemáte vytvorené žiadne sály" if @stages.empty? %>
+    <%= link_to "Spravovať sály", stages_path %>
+  </div>
+</div>
+
+<div class="clear"></div>
