@@ -3,7 +3,7 @@
 class Event < ActiveRecord::Base
 
   belongs_to :stage
-  has_many :event_dates, dependent: :destroy
+  has_many :event_dates, dependent: :delete_all
  
   attr_accessible :title, :orig_title, :description, :event_type, :projection_type, :info, :poster, :trailer, :event_dates_attributes
   accepts_nested_attributes_for :event_dates, allow_destroy: true
