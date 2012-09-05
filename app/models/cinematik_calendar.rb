@@ -9,9 +9,6 @@ class CinematikCalendar
   
   def initialize(ics = GOOGLE_ICS)
     self.cal = Icalendar::parse(open(ics).read).first
-    self.cal.events.each do |e|
-      e.dtstart = e.dtstart.in_time_zone(LOCAL_TIMEZONE)
-    end
   #rescue *HTTP_ERRORS => error 
   end
   

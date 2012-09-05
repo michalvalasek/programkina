@@ -31,6 +31,8 @@ class ScriptsController < ApplicationController
     events_created = 0
     events_updated = 0
     
+    utc_offset = DateTime.now.utc_offset
+    
     feed.events_in_year(2012).each do |e|
       if stages.include?(e.location)
         
@@ -38,7 +40,7 @@ class ScriptsController < ApplicationController
         event.stage_id = stages[e.location]
         event.title = e.summary
         
-        event.event_dates.build(:datetime => e.dtstart)
+        event.event_dates.build(:datetime => e.dtstart + utc_offset.seconds)
           
         existing_event = Event.where(:stage_id => current_user.stages, :title => e.summary).first
         if existing_event.nil?
