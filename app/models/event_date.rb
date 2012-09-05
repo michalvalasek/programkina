@@ -21,8 +21,8 @@ class EventDate < ActiveRecord::Base
     conds = {:datetime => self.datetime}
     conds[:stage_id] = stage_id unless stage_id.nil?
     
-    EventDate.where(conds).group(:event_id).collect do |ed|
+    EventDate.where(conds).group(:event_id).collect { |ed|
       ed.event
-    end
+    }.compact
   end
 end

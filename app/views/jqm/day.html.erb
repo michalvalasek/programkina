@@ -1,15 +1,15 @@
 <% content_for :header do %>
-  <div class="ui-bar ui-bar-e">
+  <div class="ui-bar ui-bar-b">
     <h2><%= formated_date(@today) %></h2>
     <div style="position:absolute;right:5px;top:0;">
-      <%= select_tag "stage_filter", options_for_select(@provider_stages.map{|s| [s.name, s.id]}, params[:stage]), :prompt => "Všetky sály" %>
+      <%= select_tag "stage_filter", options_for_select(@provider_stages.map{|s| [s.name, s.id]}, params[:stage]), :prompt => "Všetky sály", 'data-theme' => 'e' %>
     </div>
   </div>
 <% end %>
 
-<ul data-role="listview" data-filter="true" data-filter-placeholder="Hľadať film podľa názvu...">
+<ul data-role="listview" data-filter="true" data-filter-placeholder="Hľadať film podľa názvu..." data-theme="a" data-divider-theme="d">
   <% @event_dates.each do |ed| %>
-  <li data-role="list-divider"><%= ed.datetime.strftime("%H:%M") %></li>
+    <li data-role="list-divider"><%= ed.datetime.strftime("%H:%M") %></li>
     <% ed.events_on_datetime(@selected_stage_id).each do |event| %>
     <li>
       <a href="<%= jqm_event_path(event) %>" title="Detaily predstavenia">

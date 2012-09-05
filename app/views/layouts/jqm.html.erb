@@ -12,6 +12,7 @@
     <meta name="robots" content="all">
     
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+    <link rel="stylesheet" href="/assets/jqm-themes/cinematik.min.css" />
     
     <link rel="apple-touch-icon" href="/images/touch-icon-iphone.jpg" />
     <link rel="apple-touch-icon" sizes="72x72" href="/images/touch-icon-ipad.jpg" />
@@ -32,11 +33,13 @@
 </head> 
  
 <body> 
-  <div data-role="page" id="one" data-add-back-btn="true">
- 
+  <div data-role="page" id="one">
     <div data-role="header">
-      <h1><%= link_to (@provider.nil? ? "ProgramKina.sk" : @provider.name), jqm_root_path, {"data-role"=>"button"} %></h1>
-          <%= yield :header %>
+      <%= link_to("Späť", "", 'data-rel'=>'back', 'data-icon'=>'arrow-l', 'data-theme'=>'d') if @show_back_button %>
+      
+      <h1><%= link_to (@provider.nil? ? "ProgramKina.sk" : @provider.name), jqm_root_path, {'data-role'=>"button", 'data-theme'=>"e", 'data-icon'=>"home"} %></h1>
+      
+      <%= yield :header %>
     </div>
 
     <div data-role="content">

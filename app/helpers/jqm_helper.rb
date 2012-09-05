@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 module JqmHelper
   
   def event_times(event, date)

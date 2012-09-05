@@ -52,6 +52,7 @@ class JqmController < ApplicationController
   def detail
     @event = Event.find_by_id(params[:id])
     if @event
+      @show_back_button = true
       render :detail
     else
       flash[:notice] = "Predstavenie sa nenašlo :("
