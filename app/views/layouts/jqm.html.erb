@@ -38,7 +38,7 @@
     <div data-role="header">
       <%= link_to("Späť", "", 'data-rel'=>'back', 'data-icon'=>'arrow-l', 'data-theme'=>'d') if @show_back_button %>
       
-      <h1><%= link_to (@provider.nil? ? "ProgramKina.sk" : @provider.name), jqm_root_path, {'data-role'=>"button", 'data-theme'=>"e", 'data-icon'=>"home", 'data-direction'=>"reverse"} %></h1>
+      <h1 style="margin-left:auto;margin-right:auto;"><%= link_to (@provider.nil? ? "ProgramKina.sk" : @provider.name), jqm_root_path, {'data-role'=>"button", 'data-theme'=>"e", 'data-icon'=>"home", 'data-direction'=>"reverse"} %></h1>
       
       <%= yield :header %>
     </div>
