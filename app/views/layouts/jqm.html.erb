@@ -32,7 +32,8 @@
     </script>
 </head> 
  
-<body> 
+<body>
+  
   <div data-role="page" id="one">
     <div data-role="header">
       <%= link_to("Späť", "", 'data-rel'=>'back', 'data-icon'=>'arrow-l', 'data-theme'=>'d') if @show_back_button %>
@@ -50,7 +51,18 @@
       <%= yield :footer %>
       <h4>App by ProgramKina.sk</h4>
     </div>
-
   </div>
+  
+  <% unless @provider.notification.blank? %>
+  <script type="text/javascript">
+  $("<div class='ui-loader ui-overlay-shadow ui-body-a ui-corner-all'><h1>Upozornenie!</h1><h1><%= @provider.notification %></h1></div>")
+    .css({ "display":"block", "opacity":0.96, "top": $(window).scrollTop() + 100 })
+    .appendTo( $("body") )
+    .delay(2500)
+    .click(function(){
+        $(this).remove();
+    });
+  </script>
+  <% end %>
 </body>
 </html>
