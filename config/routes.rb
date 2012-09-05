@@ -5,7 +5,8 @@ Programkina::Application.routes.draw do
   get "scripts/index"
 
   get "dashboard" => "dashboard#index", :as => :dashboard
-  post "notification" => "dashboard#set_notification", :as => :notification
+  post "set_notification" => "dashboard#set_notification"
+  get "clear_notification" => "dashboard#clear_notification"
   
   get "settings" => "account#edit", :as => :edit_settings
   put "settings" => "account#update", :as => :update_settings

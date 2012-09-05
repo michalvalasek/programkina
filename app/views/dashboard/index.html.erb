@@ -2,13 +2,14 @@
   <h2>Notifikácie</h2>
   <div class="textbox_content">
     <% unless @notification.blank? %>
-    <strong>Aktuálna notifikácia:</strong>
+    <strong>Aktuálna notifikácia:</strong> <%= link_to "zrušiť", clear_notification_path, :class => "close" %>
     <div class="message warning" style="display:block;">
       <%= @notification %>
+      <%= link_to "", clear_notification_path, :class => "close" %>
     </div>
     <% end %>
     
-    <%= form_tag notification_url, method: :post do %>
+    <%= form_tag set_notification_url, method: :post do %>
       <div class="field">
         <%= label_tag :notification, "Nastaviť text notifikácie na:" %><br />
         <%= text_area_tag :notification, nil, rows: 4, cols: 64 %>

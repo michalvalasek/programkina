@@ -16,5 +16,10 @@ class DashboardController < ApplicationController
       redirect_to dashboard_path, error: "Notifikácia nebola nastavená."
     end
   end
+  
+  def clear_notification
+    current_user.account.update_attribute(:notification, "")
+    redirect_to dashboard_path, notice: "Notifikácia bola zrušená."
+  end
 
 end
