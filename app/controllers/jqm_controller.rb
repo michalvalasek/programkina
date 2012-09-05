@@ -60,6 +60,12 @@ class JqmController < ApplicationController
     end
   end
   
+  def search
+    @query = params[:search]
+    redirect_to jqm_root_path if @query.blank?
+    @events = Event.where("title LIKE '%#{@query}%' OR orig_title LIKE '%#{@query}%'")
+  end
+  
   private
   
     def find_provider

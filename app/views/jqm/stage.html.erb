@@ -4,7 +4,7 @@
   </div>
 <% end %>
 
-<ul data-role="listview" data-filter="true" data-filter-placeholder="Hľadať film podľa názvu...">
+<ul data-role="listview" data-filter="true" data-filter-placeholder="Hľadať film podľa názvu..." data-theme="a" data-divider-theme="d">
   <% @dates.each do |d| %>
   <li data-role="list-divider"><%= weekday(d.datetime) %>, <%= d.datetime.strftime("%d.%m.%Y") %></li>
     <% d.events_on_date_and_stage.each do |event| %>

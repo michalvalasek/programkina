@@ -1,0 +1,30 @@
+<% content_for :header do %>
+  <div class="ui-bar ui-bar-b">
+    <h2>Vyhľadávanie: <em style="font-weight:normal;"><%= @query %></em></h2>
+  </div>
+<% end %>
+
+<% unless @events.empty? %>
+
+<ul data-role="listview" data-theme="a">
+  <% @events.each do |event| %>
+    <li>
+      <a href="<%= jqm_event_path(event) %>" title="Detaily predstavenia">
+        <h3><%= event.title %></h3>
+        <% unless event.orig_title.blank? %>
+        <p><strong><%= event.orig_title %></strong></p>
+        <% end %>
+        <% unless event.info.blank? %>
+        <p><%= event.info %></p>
+        <% end %>
+        <p class="ui-li-aside"><strong><%= event.stage.name %></strong></p>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+<% else %>
+
+<p>Žiadne vyhovujúce predstavenia sa nenašli :(</p>
+
+<% end %>

@@ -2,6 +2,13 @@
   <img src="<%= image_path('cinematik.png') %>" alt="Logo">
 </div>
 
+<%= form_tag jqm_search_url, method: :post do %>
+  <div data-role="fieldcontain" class="ui-hide-label">
+    <label for="search">Hľadať film podľa názvu:</label>
+    <input type="search" name="search" id="search" value="" data-mini="true" placeholder="Hľadať film podľa názvu..." />
+  </div>
+<% end %>
+
 <h3><center>Vyberte si deň</center></h3>
 
 <ul data-role="listview" data-inset="true">
