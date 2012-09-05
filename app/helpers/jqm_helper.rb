@@ -8,4 +8,13 @@ module JqmHelper
     end
     times.join(', ')
   end
+  
+  def fancy_account_type
+    case @provider.account_type
+    when Account::TYPE_THEATER
+      "kino"
+    when Account::TYPE_FESTIVAL
+      "festival"
+    end
+  end
 end
