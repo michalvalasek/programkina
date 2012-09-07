@@ -7,7 +7,9 @@ class EventDate < ActiveRecord::Base
   validates :datetime, presence: true
 
   before_save do |record|
-    record.date = record.datetime.strftime("%Y%m%d")
+    event_day = record.datetime
+    event_day -= 1.day if event_day.hour < 4 # adjust date for night events (starting between midnight and 4AM)
+    record.date = event_day.strftime("%Y%m%d")
     record.stage_id = record.event.stage.id
   end
   

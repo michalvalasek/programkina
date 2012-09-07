@@ -44,8 +44,6 @@ class JqmController < ApplicationController
     if @event_dates.empty?
       flash[:notice] = "Nič na programe :("
       render :not_found
-    else
-      @today = @event_dates.first.datetime
     end
   end
 

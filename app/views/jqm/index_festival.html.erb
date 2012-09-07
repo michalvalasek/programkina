@@ -14,7 +14,7 @@
 <ul data-role="listview" data-inset="true">
   <% @days.each do |d| %>
   <li>
-    <%= link_to formated_date(d.datetime), jqm_day_path(d.date) %>
+    <%= link_to formated_date(d.date), jqm_day_path(d.date) %>
   </li>
   <% end %>
 </ul>

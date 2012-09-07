@@ -33,12 +33,14 @@ module ApplicationHelper
     wdays[w.to_i]
   end
   
-  def formated_date(datetime)
-    weekday(datetime) + " - " + datetime.strftime("%d.%m.%Y")
+  def formated_date(date)
+    date = DateTime.strptime(date,"%Y%m%d") if date =~ /\A[\d]{8}\z/
+    weekday(date) + " - " + date.strftime("%d.%m.%Y")
   end
   
-  def formated_datetime(datetime)
-    weekday(datetime) + " - " + datetime.strftime("%d.%m.%Y o %H:%M")
+  def formated_datetime(date)
+    date = DateTime.strptime(date,"%Y%m%d") if date =~ /\A[\d]{8}\z/
+    weekday(date) + " - " + date.strftime("%d.%m.%Y o %H:%M")
   end
 
 end
