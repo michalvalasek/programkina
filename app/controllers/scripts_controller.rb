@@ -91,8 +91,8 @@ class ScriptsController < ApplicationController
   end
   
   def cinematik_cleaner
-    events_deleted = Event.where(:stage_id => current_user.stages).delete_all
-    redirect_to scripts_path, notice: "Cleaner skript dokončený.<br />Vymazaných podujatí: #{events_deleted}".html_safe
+    events_deleted = Event.destroy_all(:stage_id => current_user.stages)
+    redirect_to scripts_path, notice: "Cleaner skript dokončený.<br />Vymazaných podujatí: #{events_deleted.size}".html_safe
   end
   
   private
