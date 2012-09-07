@@ -24,8 +24,8 @@ class JqmController < ApplicationController
       flash[:notice] = "Neznáme javisko :("
       render :not_found
     else
-      @dates = EventDate.where("date>:now AND stage_id=:stage_id", {
-        :now => Time.now.strftime("%Y%m%d"),
+      @dates = EventDate.where("datetime>:now AND stage_id=:stage_id", {
+        :now => Time.now,
         :stage_id => @stage.id
       }).group(:date)
     end
