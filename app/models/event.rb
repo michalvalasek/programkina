@@ -11,7 +11,7 @@ class Event < ActiveRecord::Base
   EVENT_TYPES = ["Filmové predstavenie", "Filmový klub", "Detské predstavenie"]
   PROJECTION_TYPES = ["2D", "3D", "35mm"]
 
-  validates :title, :description, :event_type, :projection_type, :info, presence: true
+  validates :title, :description, :event_type, :projection_type, presence: true
   validates :title, :orig_title, :poster, :trailer, length: { maximum: 250 }
   validates :event_type, length: { maximum: 100 }
   validates :event_type, inclusion: { in: EVENT_TYPES, message: "%{value} nie je valídny typ podujatia" } 
