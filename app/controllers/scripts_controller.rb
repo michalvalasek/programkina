@@ -49,7 +49,7 @@ class ScriptsController < ApplicationController
           unless desc.empty?
             desc.first.match(/\A([^;]*);(.*)/) do |m|
               event.orig_title = m[1]
-              event.info = m[2]
+              event.info = m[2] || "No info"
             end
             event.description = "#{desc[1]}<br /><br /><i>#{desc[2]}</i>".html_safe
           end
@@ -58,18 +58,16 @@ class ScriptsController < ApplicationController
             event.trailer = m[1]
           end
           
-          e.description.match(/(http:\/\/www\.cinematik\.sk\/[\S]*)/) do |m|
-            info_from_web = parse_cinematik_page(m[0])
-            event.description = info_from_web[:description] unless info_from_web[:description].blank?
-            event.trailer = info_from_web[:trailer] if event.trailer.blank? && !info_from_web[:trailer].blank?
-            event.poster = info_from_web[:poster] unless info_from_web[:poster].blank?
-          end
+          # e.description.match(/(http:\/\/www\.cinematik\.sk\/[\S]*)/) do |m|
+          #   info_from_web = parse_cinematik_page(m[0])
+          #   event.description = info_from_web[:description] unless info_from_web[:description].blank?
+          #   event.trailer = info_from_web[:trailer] if event.trailer.blank? && !info_from_web[:trailer].blank?
+          #   event.poster = info_from_web[:poster] unless info_from_web[:poster].blank?
+          # end
           event.event_type = "Filmové predstavenie"
           event.projection_type = "2D"
           
-          events_created += 1
-          
-          event.save
+          events_created += 1 if event.save
         else
           #update the event's stage and times if needed
           updated = false

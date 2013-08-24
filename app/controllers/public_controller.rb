@@ -4,4 +4,7 @@ class PublicController < ApplicationController
   def index
     @providers = Account.all
   end
+  
+  def contact
+  end
 end

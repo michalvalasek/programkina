@@ -2,8 +2,6 @@ require 'subdomain'
 
 Programkina::Application.routes.draw do
   
-  get "scripts/index"
-
   get "dashboard" => "dashboard#index", :as => :dashboard
   post "set_notification" => "dashboard#set_notification"
   get "clear_notification" => "dashboard#clear_notification"
@@ -32,7 +30,10 @@ Programkina::Application.routes.draw do
     get 'event/:id' => "jqm#detail", :as => :jqm_event
     match 'search' => "jqm#search", :as => :jqm_search
   end
-
+  
+  # public pages:
+  get '/contact' => "public#index", :as => :public_contact
+ 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
