@@ -32,7 +32,7 @@ Programkina::Application.routes.draw do
   end
   
   # public pages:
-  get '/contact' => "public#index", :as => :public_contact
+  get '/contact' => "public#contact", :as => :public_contact
  
   # The priority is based upon order of creation:
   # first created -> highest priority.
