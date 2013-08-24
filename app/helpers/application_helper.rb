@@ -42,5 +42,4 @@ module ApplicationHelper
     date = DateTime.strptime(date,"%Y%m%d") if date =~ /\A[\d]{8}\z/
     weekday(date) + " - " + date.strftime("%d.%m.%Y o %H:%M")
   end
-
 end

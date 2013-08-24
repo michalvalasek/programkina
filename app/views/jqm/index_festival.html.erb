@@ -1,6 +1,8 @@
+<% unless controller.is_embed? %>
 <div class="festival-logo" style="margin:-15px -15px 0 -15px; text-align:center; background:#201D1E;">
   <img src="<%= image_path('cinematik.png') %>" alt="Logo">
 </div>
+<% end %>
 
 <%= form_tag jqm_search_url, method: :post do %>
   <div data-role="fieldcontain" class="ui-hide-label">

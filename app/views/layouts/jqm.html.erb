@@ -51,7 +51,12 @@
 
     <div data-role="footer">
       <%= yield :footer %>
-      <h4>App by ProgramKina.sk</h4>
+      <% if controller.is_embed? %>
+        <h4>Interaktívny program od programkina.sk</h4>
+        <p style="text-align:center;">Program dostupný aj pre mobily na <a href="http://cinematik.programkina.sk" title="Mobilná verzia programu">cinematik.programkina.sk</a></p>
+      <% else %>
+        <h4>App by ProgramKina.sk</h4>
+      <% end %>
     </div>
   </div>
   

@@ -4,6 +4,14 @@ class ApplicationController < ActionController::Base
   
   protect_from_forgery
 
+  def is_embed?
+    !params[:context].nil? and params[:context] == 'embed'
+  end
+
+  def default_url_options
+    is_embed? ? {:context => 'embed'} : {:context => nil}
+  end
+
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || dashboard_path
   end
