@@ -19,6 +19,9 @@ Programkina::Application.routes.draw do
 
   resources :stages do
     resources :events
+    member do
+      delete 'remove_all_events'
+    end
   end
 
   resources :events

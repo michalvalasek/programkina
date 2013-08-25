@@ -2,9 +2,11 @@
 
 <div class="above-table">
   <h3>Predstavenia</h3>
-  <%= link_to "Pridať predstavenie", new_stage_event_path(@stage), :class=>"bigbutton" %></p>
+  <%= link_to "Pridať predstavenie", new_stage_event_path(@stage), :class=>"bigbutton" %>
 </div>
 
+<% if @stage.events.any? %>
+  
 <table cellpadding="0" cellspacing="0" width="100%" class="sortable" id="stages-list">
   <tr>
     <th>Názov</th>
@@ -12,13 +14,21 @@
   </tr>
 
   <% @stage.events.each do |event| %>
-    <tr class="<%= cycle("even","odd") %>">
+    <tr class="<%= cycle("even","odd") %>" data-event-id="<%= event.id %>">
       <td><%= event.title %></td>
       <td>
         <%= link_to 'Zobraziť detaily', stage_event_path(@stage, event) %>
         <%= link_to 'Upraviť', edit_stage_event_path(@stage, event) %>
-        <%= link_to 'Zmazať', stage_event_path(@stage, event), confirm: 'Naozaj chcete zmazať toto predstavenie?', method: :delete %>
+        <%= link_to 'Zmazať', stage_event_path(@stage, event), confirm: 'Naozaj chcete zmazať toto predstavenie?', method: :delete, remote: true, class: 'remove-event' %>
       </td>
     </tr>
   <% end %>
 </table>
+
+<%= link_to "Vymazať všetky predstavenia", remove_all_events_stage_path(@stage), confirm: "Naozaj chcete vymazať všetky predstavenia v tejto scéne?", method: :delete %>
+
+<% else %>
+
+  <p>Žiadne predstavenia na tejto scéne.</p>
+
+<% end %>

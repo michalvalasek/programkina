@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class StagesController < ApplicationController
   
   load_and_authorize_resource
@@ -81,6 +83,16 @@ class StagesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to stages_url }
+      format.json { head :no_content }
+    end
+  end
+
+  def remove_all_events
+    @stage = Stage.find(params[:id])
+    @stage.events.destroy_all
+    
+    respond_to do |format|
+      format.html { redirect_to stage_events_path(@stage), notice: "Všetky predstavenia v tejto scéne boli vymazané." }
       format.json { head :no_content }
     end
   end

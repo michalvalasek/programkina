@@ -38,4 +38,17 @@ class EventsController < ApplicationController
     end
   end
 
+  # DELETE /events/1
+  # DELETE /events/1.json
+  def destroy
+    @event = Event.find(params[:id])
+    stage = @event.stage
+    @event.destroy
+
+    respond_to do |format|
+      format.html { redirect_to stage_events_path(stage) }
+      format.json { head :no_content }
+      format.js { render nothing: true, status: 200 }
+    end
+  end
 end
