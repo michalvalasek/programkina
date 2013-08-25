@@ -27,16 +27,15 @@ Programkina::Application.routes.draw do
   resources :events
   
   scope "(:context)", :context => /embed/ do
-    constraints(Subdomain) do
-    
+    constraints(Subdomain) do  
       match '/' => "jqm#index", :as => :jqm_root
       match 'stage/:id' => "jqm#stage", :as => :jqm_stage
       get 'day/:date(/:stage)' => "jqm#day", :as => :jqm_day
       get 'event/:id' => "jqm#detail", :as => :jqm_event
       match 'search' => "jqm#search", :as => :jqm_search
-    
     end
   end
+  
   # public pages:
   get '/contact' => "public#contact", :as => :public_contact
  

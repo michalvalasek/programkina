@@ -13,6 +13,9 @@ class EventsController < ApplicationController
     @stages = current_user.stages
   end
 
+  def show
+  end
+
   # GET /event/new
   def new
   end

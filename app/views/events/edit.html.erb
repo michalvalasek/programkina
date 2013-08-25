@@ -1,6 +1,8 @@
 <h2>Upraviť podujatie</h2>
 
-<%= render 'form' %>
+<%= form_for(@event, url: stage_event_path(@stage)) do |f| %>
+    <%= render 'form', f: f %>
+<% end %>
 
 <%= link_to 'Zobraziť', stage_event_path(@stage, @event) %> |
 <%= link_to 'Späť', stage_events_path(@stage) %>

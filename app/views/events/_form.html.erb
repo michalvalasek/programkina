@@ -1,6 +1,5 @@
 <%= render 'shared/form_errors', target: @event %>
 
-<%= form_for(@event, url: stage_event_path(@stage)) do |f| %>
   <div class="field">
     <%= f.label :title, "Názov" %><br />
     <%= f.text_field :title %>
@@ -54,4 +53,3 @@
   <div class="actions">
     <%= f.submit "Uložiť" %>
   </div>
-<% end %>
