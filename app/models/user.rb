@@ -2,6 +2,7 @@
 
 class User < ActiveRecord::Base
   has_many :stages
+  has_many :sections
   has_one :account
   
   # Include default devise modules. Others available are:

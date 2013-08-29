@@ -48,6 +48,20 @@
           <% current_user.stages.order(:id).each do |stage| %>
             <li><%= main_menu_item_for stage_events_path(stage), stage.name, "Spravovať program", "calendar.png" %></li>
           <% end %>
+          <% if current_user.stages.empty? %>
+            <li><%= link_to 'Pridať sálu', new_stage_path %></li>
+          <% end %>
+          </ul>
+      </li>
+      <li>
+          <%= main_menu_item_for sections_path, "Sekcie", "Správa sekcií", "support.png" %>
+          <ul>
+          <% current_user.sections.order(:id).each do |section| %>
+            <li><%= main_menu_item_for events_section_path(section), section.name, "Spravovať program", "calendar.png" %></li>
+          <% end %>
+          <% if current_user.sections.empty? %>
+            <li><%= link_to 'Pridať sekciu', new_section_path %></li>
+          <% end %>
           </ul>
       </li>
     </ul>

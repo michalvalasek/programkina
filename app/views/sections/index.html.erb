@@ -1,0 +1,23 @@
+<h2>Sekcie</h2>
+
+<table cellpadding="0" cellspacing="0" width="100%" class="sortable" id="sections-list">
+  <tr>
+    <th>Názov</th>
+    <th></th>
+  </tr>
+
+<% @sections.each do |section| %>
+  <tr class="<%= cycle("even","odd") %>">
+    <td><%= section.name %></td>
+    <td>
+      <%= link_to 'Zobraziť detaily', section %>
+      <%= link_to 'Upraviť', edit_section_path(section) %>
+      <%= link_to 'Zmazať', section, confirm: 'Naozaj chcete nevratne zmazať túto sekciu?', method: :delete, remote: true, class: 'remove-section' %>
+    </td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Pridať sekciu', new_section_path %>

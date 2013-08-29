@@ -1,0 +1,12 @@
+<%= render 'shared/form_errors', target: @section %>
+
+<%= form_for(@section) do |f| %>
+  <div class="field">
+    <%= f.label :name, "Názov" %><br />
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Uložiť" %>
+  </div>
+<% end %>

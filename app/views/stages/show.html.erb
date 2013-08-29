@@ -1,4 +1,5 @@
 <h3><%= @stage.name %></h3>
 
 <%= link_to 'Upraviť', edit_stage_path(@stage) %> |
+<%= link_to 'Vymazať', stage_path(@stage), method: :delete %> |
 <%= link_to 'Späť', stages_path %>

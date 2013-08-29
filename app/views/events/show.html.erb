@@ -8,6 +8,8 @@
 
 <p><strong>Popis:</strong> <%= @event.description %></p>
 
+<p><strong>Sekcia:</strong> <%= @event.section.blank? ? "žiadna" : @event.section.name %></p>
+
 <p><strong>Typ podujatia:</strong> <%= @event.event_type %></p>
 
 <p><strong>Typ projekcie:</strong> <%= @event.projection_type %></p>

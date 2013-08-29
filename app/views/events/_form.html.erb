@@ -16,6 +16,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :event_section_id, "Sekcia" %><br />
+    <%= collection_select(:event, :section_id, Section.all, :id, :name, include_blank: true) %>
+  </div>
+
+  <div class="field">
     <%= f.label :event_type, "Typ podujatia" %><br />
     <%= f.select :event_type, Event::EVENT_TYPES %>
   </div>

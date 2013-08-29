@@ -4,6 +4,7 @@ class Ability
   def initialize(user)
     
     can :manage, Stage, :user_id => user.id
+    can :manage, Section, :user_id => user.id
     can :manage, Event
 
     # Define abilities for the passed in user here. For example:

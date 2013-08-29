@@ -1,0 +1,5 @@
+<h3><%= @section.name %></h3>
+
+<%= link_to 'Upraviť', edit_section_path(@section) %> |
+<%= link_to 'Vymazať', section_path(@section), method: :delete %> |
+<%= link_to 'Späť', sections_path %>

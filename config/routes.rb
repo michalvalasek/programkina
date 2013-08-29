@@ -24,6 +24,16 @@ Programkina::Application.routes.draw do
     end
   end
 
+  resources :sections do
+    member do
+      get 'events'
+      get 'add_events'
+      post 'add_event/:event_id' => "sections#add_event", as: :add_event
+      delete 'remove_event/:event_id' => "sections#remove_event", as: :remove_event
+      delete 'remove_all_events'
+    end
+  end
+
   resources :events
   
   scope "(:context)", :context => /embed/ do

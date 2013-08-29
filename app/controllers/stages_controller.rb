@@ -66,7 +66,7 @@ class StagesController < ApplicationController
 
     respond_to do |format|
       if @stage.update_attributes(params[:stage])
-        format.html { redirect_to @stage, notice: 'Stage was successfully updated.' }
+        format.html { redirect_to @stage, notice: 'Sála bola upravená.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -82,7 +82,7 @@ class StagesController < ApplicationController
     @stage.destroy
 
     respond_to do |format|
-      format.html { redirect_to stages_url }
+      format.html { redirect_to stages_url, notice: 'Sála bola vymazaná.' }
       format.json { head :no_content }
     end
   end

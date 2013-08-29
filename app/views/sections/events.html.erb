@@ -1,0 +1,34 @@
+<h2>Správa programu sekcie: <%= @section.name %></h2>
+
+<div class="above-table">
+  <h3>Predstavenia</h3>
+  <%= link_to "Pridať predstavenie", add_events_section_path(@section), :class=>"bigbutton" %>
+</div>
+
+<% if @section.events.any? %>
+  
+<table cellpadding="0" cellspacing="0" width="100%" class="sortable" id="stages-list">
+  <tr>
+    <th>Názov</th>
+    <th></th>
+  </tr>
+
+  <% @section.events.each do |event| %>
+    <tr class="<%= cycle("even","odd") %>" data-event-id="<%= event.id %>">
+      <td><%= event.title %></td>
+      <td>
+        <%= link_to 'Zobraziť detaily', stage_event_path(event.stage, event) %>
+        <%= link_to 'Upraviť', edit_stage_event_path(event.stage, event) %>
+        <%= link_to 'Odstrániť zo sekcie', remove_event_section_path(@section, event), confirm: 'Naozaj chcete toto predstavenie odstrániť zo sekcie?', method: :delete, remote: true, class: 'remove-event' %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "Odstrániť zo sekcie všetky predstavenia", remove_all_events_section_path(@section), confirm: "Naozaj chcete zo sekcie odstrániť všetky predstavenia?", method: :delete %>
+
+<% else %>
+
+  <p>Žiadne predstavenia v tejto sekcii.</p>
+
+<% end %>
