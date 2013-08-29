@@ -9,6 +9,9 @@
   <% if @event.orig_title %>
     <p><em><%= @event.orig_title %></em></p>
   <% end %>
+  <% unless @event.section.nil?  %>
+    <p><strong>Sekcia:</strong> <%= @event.section.name %></p>
+  <% end %>
   <p><%= simple_format(@event.description) %></p>
   <p>Typ predstavenia: <%= @event.event_type %></p>
   <p><%= simple_format(@event.info) %></p>

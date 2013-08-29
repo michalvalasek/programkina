@@ -17,6 +17,9 @@
         <% unless event.orig_title.blank? %>
         <p><strong><%= event.orig_title %></strong></p>
         <% end %>
+        <% unless event.section.nil?  %>
+        <p>[Sekcia<strong> <%= event.section.name %></strong>]</p>
+        <% end %>
         <% unless event.info.blank? %>
         <p><%= event.info %></p>
         <% end %>

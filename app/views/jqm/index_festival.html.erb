@@ -30,3 +30,15 @@
   </li>
   <% end %>
 </ul>
+
+<% if @sections.any? %>
+  <h3><center>Sekcie</center></h3>
+
+  <ul data-role="listview" data-inset="true">
+    <% @sections.each do |s| %>
+    <li>
+      <%= link_to s.name, jqm_section_path(s) %>
+    </li>
+    <% end %>
+  </ul>
+<% end %>

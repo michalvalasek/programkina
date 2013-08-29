@@ -40,6 +40,7 @@ Programkina::Application.routes.draw do
     constraints(Subdomain) do  
       match '/' => "jqm#index", :as => :jqm_root
       match 'stage/:id' => "jqm#stage", :as => :jqm_stage
+      match 'section/:id' => "jqm#section", :as => :jqm_section
       get 'day/:date(/:stage)' => "jqm#day", :as => :jqm_day
       get 'event/:id' => "jqm#detail", :as => :jqm_event
       match 'search' => "jqm#search", :as => :jqm_search

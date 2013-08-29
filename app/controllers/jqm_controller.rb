@@ -7,6 +7,7 @@ class JqmController < ApplicationController
   
   def index
     @stages = @provider.user.stages
+    @sections = @provider.user.sections
     if @provider.theater?
       render :index_theater
     elsif @provider.festival?
@@ -21,12 +22,26 @@ class JqmController < ApplicationController
     #@events = EventDate.where("date>'#{now}'").group(:event_id).map {|ed| ed.event }
     
     if @stage.nil? || @stage.user != @provider.user
-      flash[:notice] = "Neznáme javisko :("
+      flash[:notice] = "Neznáma sála :("
       render :not_found
     else
       @dates = EventDate.where("datetime>:now AND stage_id=:stage_id", {
         :now => Time.now,
         :stage_id => @stage.id
+      }).group(:date)
+    end
+  end
+
+  def section
+    @section = Section.find_by_id(params[:id])
+    
+    if @section.nil? || @section.user != @provider.user
+      flash[:notice] = "Neznáma sekcia :("
+      render :not_found
+    else
+      @dates = EventDate.where("datetime>:now AND event_id IN (:events)", {
+        :now => Time.now,
+        :events => @section.events
       }).group(:date)
     end
   end

@@ -18,6 +18,12 @@ class EventDate < ActiveRecord::Base
       ed.event
     end
   end
+
+  def events_on_date_and_section(section)
+    EventDate.where("date=:date AND event_id IN (:events)", {date: self.date, events: section.events})
+      .group(:event_id)
+      .collect{|ed| ed.event }
+  end
   
   def events_on_datetime(stage_id = nil)
     conds = {:datetime => self.datetime}
