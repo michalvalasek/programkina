@@ -17,5 +17,4 @@ class Event < ActiveRecord::Base
   validates :event_type, length: { maximum: 100 }
   validates :event_type, inclusion: { in: EVENT_TYPES, message: "%{value} nie je valídny typ podujatia" } 
   validates :projection_type, inclusion: { in: PROJECTION_TYPES, message: "%{value} nie je valídny typ premietania" }
-  validates :section_id, inclusion: { in: Section.all.map(&:id), message: "Neexistujúca %{value}" }, allow_blank: true
 end
