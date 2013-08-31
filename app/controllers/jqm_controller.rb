@@ -7,7 +7,7 @@ class JqmController < ApplicationController
   
   def index
     @stages = @provider.user.stages
-    @sections = @provider.user.sections
+    @sections = @provider.user.sections.order(:name)
     if @provider.theater?
       render :index_theater
     elsif @provider.festival?
