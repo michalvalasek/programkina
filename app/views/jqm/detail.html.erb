@@ -24,9 +24,9 @@
   </ul>
 
   <% unless @event.poster.blank? %>
-    <div data-role="collapsible" data-theme="a">
+    <div data-role="collapsible" data-theme="a" id="event-poster-container">
       <h3>Obrázok k filmu</h3>
-      <p><img src="<%= @event.poster.html_safe %>" alt="Poster" /></p>
+      <p><img src="<%= @event.poster.html_safe %>" alt="Poster" class="event-poster" /></p>
     </div>
   <% end %>
 
@@ -37,3 +37,15 @@
     </div>
   <% end %>
 </div>
+
+<script>
+$('#event-poster-container').on('expand',function(){
+  var $poster = $(this).find('img.event-poster');
+  var $wrapper = $poster.parent();
+  setTimeout(function(){
+    if ($poster.width() > $wrapper.width()) {
+      $poster.width($wrapper.width());
+    }
+  }, 100);
+});
+</script>
