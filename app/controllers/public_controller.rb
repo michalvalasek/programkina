@@ -8,21 +8,22 @@ class PublicController < ApplicationController
   def contact
   end
 
+  # returns JSON with closest two events for given provider
   def pebble
     provider = Account.find(params[:provider_id])
 
     dates = EventDate.where("datetime>:now AND stage_id IN (:stage_id)", {
         :now => Time.now,
         :stage_id => provider.user.stages.map(&:id)
-      }).group(:date).limit(1)
+      }).limit(2)
     
-    data = dates.empty? ? {} : {
-      0 => dates.first.datetime.strftime("%H:%M"),
-      1 => ActiveSupport::Inflector.transliterate(dates.first.event.title),
-      2 => ActiveSupport::Inflector.transliterate(dates.first.event.stage.name)
-    }
+    output = {}
+    dates.each do |date| 
+      output[output.count] = ActiveSupport::Inflector.transliterate(date.event.title)
+      output[output.count] = dates.first.datetime.strftime("%H:%M") + ", " + ActiveSupport::Inflector.transliterate(date.event.stage.name)
+    end
     
-    render json: data
+    render json: output
   
   rescue ActiveRecord::RecordNotFound
     render json: {}
