@@ -19,8 +19,8 @@ class PublicController < ApplicationController
     
     output = {}
     dates.each do |date| 
-      output[output.count] = ActiveSupport::Inflector.transliterate(date.event.title)
-      output[output.count] = date.datetime.strftime("%H:%M") + ", " + ActiveSupport::Inflector.transliterate(date.event.stage.name)
+      output[output.count] = ActiveSupport::Inflector.transliterate(date.event.title.slice(0,20))
+      output[output.count] = date.datetime.strftime("%H:%M") + " " + ActiveSupport::Inflector.transliterate(date.event.stage.name.gsub(/[a-z]|\s/,''))
     end
     
     render json: output
