@@ -18,8 +18,8 @@ class PublicController < ApplicationController
     
     data = dates.empty? ? {} : {
       0 => dates.first.datetime.strftime("%H:%M"),
-      1 => dates.first.event.title,
-      2 => dates.first.event.stage.name
+      1 => ActiveSupport::Inflector.transliterate(dates.first.event.title),
+      2 => ActiveSupport::Inflector.transliterate(dates.first.event.stage.name)
     }
     
     render json: data
