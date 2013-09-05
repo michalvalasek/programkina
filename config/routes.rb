@@ -49,6 +49,8 @@ Programkina::Application.routes.draw do
   
   # public pages:
   get '/contact' => "public#contact", :as => :public_contact
+
+  get '/pebble/:provider_id' => "public#pebble"
  
   # The priority is based upon order of creation:
   # first created -> highest priority.
