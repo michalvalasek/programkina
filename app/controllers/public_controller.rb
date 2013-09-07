@@ -15,7 +15,7 @@ class PublicController < ApplicationController
     dates = EventDate.where("datetime>:now AND stage_id IN (:stage_id)", {
         :now => Time.now,
         :stage_id => provider.user.stages.map(&:id)
-      }).limit(2)
+      }).order(:datetime).limit(2)
     
     output = {}
     dates.each do |date| 
