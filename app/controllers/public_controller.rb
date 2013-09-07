@@ -13,7 +13,7 @@ class PublicController < ApplicationController
     provider = Account.find(params[:provider_id])
 
     dates = EventDate.where("datetime>:now AND stage_id IN (:stage_id)", {
-        :now => Time.now,
+        :now => (Time.now + 2.hours),
         :stage_id => provider.user.stages.map(&:id)
       }).order(:datetime).limit(2)
     
